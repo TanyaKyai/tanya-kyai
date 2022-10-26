@@ -1,7 +1,11 @@
+import { logoGreen } from "../../assets";
+
 const Login = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <div>
+      <img src={logoGreen} alt="" />
+    </div>
+  );
+};
 
-export default Login
+export default Login;
