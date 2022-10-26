@@ -9,6 +9,8 @@ module.exports = {
         primary: "#23705D",
         secondary: "#48B89D",
         gray: "#F3F2F2",
+        grayActive: "#E6E4E4",
+        darkGray: "#535353",
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],

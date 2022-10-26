@@ -1,5 +1,5 @@
 const Button = ({ styles, props }) => {
-  return <div className={`bg-primary font-roboto font-bold text-white outline-none ${styles}`}>{children}</div>;
+  return <button className={`bg-primary font-roboto font-bold text-white outline-none ${styles}`}>{children}</button>;
 };
 
 export default Button;
