@@ -17,6 +17,33 @@ import home from "./navbar/home.svg";
 import notification from "./navbar/notification.svg";
 import profile from "./navbar/profile.svg";
 
-import logoWhite from "./logo-white.svg";
-import tripleDiamonds from "./triple-diamonds.svg";
+import logoWhite from "./splash/logo-white.svg";
+import tripleDiamonds from "./splash/triple-diamonds.svg";
 import bookWhite from "./splash/book-white.svg";
+
+import bookGreen from "./login/book-green.svg";
+import logoGreen from "./login/logo-green.svg";
+
+export {
+  download,
+  fatwaLogo,
+  circledCheck,
+  comment,
+  love,
+  plus,
+  search,
+  send,
+  share,
+  tripleDots,
+  x,
+  book,
+  create,
+  home,
+  notification,
+  profile,
+  logoWhite,
+  tripleDiamonds,
+  bookWhite,
+  bookGreen,
+  logoGreen,
+};
