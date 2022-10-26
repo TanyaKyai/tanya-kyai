@@ -5,7 +5,6 @@ import { BathulMasail, Login, NewPost, NewQuestion, Notification, Profile, Splas
 const App = () => {
   return (
     <>
-      <Splash />
       <Login />
     </>
   );
