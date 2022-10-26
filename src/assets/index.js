@@ -24,4 +24,26 @@ import bookWhite from "./splash/book-white.svg";
 import bookGreen from "./login/book-green.svg";
 import logoGreen from "./login/logo-green.svg";
 
-export { logoGreen };
+export {
+  download,
+  fatwaLogo,
+  circledCheck,
+  comment,
+  love,
+  plus,
+  search,
+  send,
+  share,
+  tripleDots,
+  x,
+  book,
+  create,
+  home,
+  notification,
+  profile,
+  logoWhite,
+  tripleDiamonds,
+  bookWhite,
+  bookGreen,
+  logoGreen,
+};
