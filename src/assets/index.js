@@ -1,6 +1,7 @@
 import download from "./fatwa/download.svg";
 import fatwaLogo from "./fatwa/fatwa-logo.svg";
 
+import avatar from "./home/avatar.svg";
 import circledCheck from "./home/circled-check.svg";
 import comment from "./home/comment.svg";
 import love from "./home/love.svg";
@@ -27,6 +28,7 @@ import logoGreen from "./login/logo-green.svg";
 export {
   download,
   fatwaLogo,
+  avatar,
   circledCheck,
   comment,
   love,
