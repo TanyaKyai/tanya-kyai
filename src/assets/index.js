@@ -28,10 +28,7 @@ import logoGreen from "./login/logo-green.svg";
 export {
   download,
   fatwaLogo,
-<<<<<<< HEAD
-=======
   avatar,
->>>>>>> feats/home
   circledCheck,
   comment,
   love,
