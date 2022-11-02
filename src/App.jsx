@@ -1,12 +1,15 @@
 import { Routes, Route } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 import { Button, Card, Navbar } from "./components";
 import { BathulMasail, Login, NewPost, NewQuestion, Notification, Profile, Splash } from "./pages";
 
 const App = () => {
   return (
     <>
-      <Splash />
-      <Login />
+      <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
+        <Login />
+      </GoogleOAuthProvider>
     </>
   );
 };
