@@ -10,6 +10,7 @@ const App = () => {
       <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
         <Login />
         {/* <Home /> */}
+        <Profile />
       </GoogleOAuthProvider>
     </>
   );
