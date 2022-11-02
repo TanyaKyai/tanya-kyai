@@ -19,12 +19,14 @@ const App = () => {
   return (
     <>
       <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
-        <Splash />
         <Navbar />
-        {/* <Login /> */}
-        {/* <Home /> */}
-        <Profile />
-        <NewQuestion />
+        <Routes>
+          <Route index path="/" element={<Splash />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/new-question" element={<NewQuestion />} />
+        </Routes>
       </GoogleOAuthProvider>
     </>
   );

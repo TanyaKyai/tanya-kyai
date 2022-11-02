@@ -6,7 +6,7 @@ const Splash = () => {
     <div>
       <section className=" flex h-screen  flex-col  items-center justify-center gap-y-4 bg-primary">
         <Link
-          to="#"
+          to="/login"
           className="absolute top-4 right-4 font-inter text-xs text-white"
         >
           Lewati
