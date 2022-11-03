@@ -25,6 +25,8 @@ import bookWhite from "./splash/book-white.svg";
 import bookGreen from "./login/book-green.svg";
 import logoGreen from "./login/logo-green.svg";
 
+import leftArrow from "./left-arrow.svg";
+
 export {
   download,
   fatwaLogo,
@@ -48,4 +50,5 @@ export {
   bookWhite,
   bookGreen,
   logoGreen,
+  leftArrow,
 };
