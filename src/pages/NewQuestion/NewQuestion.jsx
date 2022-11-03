@@ -7,14 +7,11 @@ const NewQuestion = () => {
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = (data) => {
     postQuestions(data);
+    setIsToggled(true);
   };
   const [isToggled, setIsToggled] = useState(false);
 
   // console.log(watch("question"));
-
-  const handleSuccess = () => {
-    handleSubmit(onSubmit);
-  };
 
   return (
     <section>
@@ -37,7 +34,7 @@ const NewQuestion = () => {
             />
             <button
               className="mt-[20px] rounded-md bg-primary py-2 px-[152px] text-white "
-              onClick={() => handleSuccess()}
+              onClick={() => handleSubmit()}
               type="submit"
             >
               Kirim
