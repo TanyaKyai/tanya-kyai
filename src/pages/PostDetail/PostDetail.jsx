@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-import { tripleDots, x, share, love, comment, avatar } from "../../assets";
+import { tripleDots, x, share, love, comment, avatar, leftArrow } from "../../assets";
 
 const PostDetail = ({ posts }) => {
   const { id } = useParams();
@@ -10,7 +10,10 @@ const PostDetail = ({ posts }) => {
   console.log(post);
 
   return (
-    <section className="mx-auto px-8 md:w-3/4 lg:w-1/2">
+    <section className="mx-auto px-8 pt-12 md:w-3/4 lg:w-1/2">
+      <Link to="/home">
+        <img src={leftArrow} alt="left-arrow" />
+      </Link>
       <div className="mt-12 rounded-2xl bg-gray px-5 py-4">
         {/* Header */}
         <div className="flex items-center justify-between">
