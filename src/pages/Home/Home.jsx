@@ -4,11 +4,10 @@ import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
 
 import { useEffect, useState } from "react";
-import { getFatwas, getPosts } from "../../services/fetch";
+import { getFatwas } from "../../services/fetch";
 
-const Home = () => {
+const Home = ({ posts }) => {
   const [active, setActive] = useState("Beranda");
-  const [posts, setPosts] = useState([]);
   const [fatwas, setFatwas] = useState([]);
 
   const handleTabActive = (item) => {
@@ -16,7 +15,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getPosts(setPosts);
     getFatwas(setFatwas);
   }, []);
 

@@ -4,7 +4,8 @@ import Login from "./Login/Login";
 import NewPost from "./NewPost/NewPost";
 import NewQuestion from "./NewQuestion/NewQuestion";
 import Notification from "./Notification/Notification";
+import PostDetail from "./PostDetail/PostDetail";
 import Profile from "./Profile/Profile";
 import Splash from "./Splash/Splash";
 
-export { BahtsulMasail, Home, Login, NewPost, NewQuestion, Notification, Profile, Splash };
+export { BahtsulMasail, Home, Login, NewPost, NewQuestion, Notification, PostDetail, Profile, Splash };
