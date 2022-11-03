@@ -8,7 +8,6 @@ import { ProtectedRoutes, PublicRoutes } from "./routes";
 const App = () => {
   return (
     <>
-      <Navbar />
       <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
         <Routes>
           <Route index path="/" element={<Splash />} />
@@ -16,11 +15,13 @@ const App = () => {
             <Route index path="/login" element={<Login />} />
           </Route>
           <Route element={<ProtectedRoutes />}>
-            <Route index path="/home" element={<Home />} />
-            <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
-            <Route path="/new-question" element={<NewQuestion />} />
-            <Route path="/notification" element={<Notification />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route element={<Navbar />}>
+              <Route index path="/home" element={<Home />} />
+              <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
+              <Route path="/new-question" element={<NewQuestion />} />
+              <Route path="/notification" element={<Notification />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
           </Route>
         </Routes>
       </GoogleOAuthProvider>
