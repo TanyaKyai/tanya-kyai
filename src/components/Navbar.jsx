@@ -11,7 +11,7 @@ const Navbar = () => {
             <p className="text-[12px]">Home</p>
           </button>
         </Link>
-        <Link to="/bathul-masail">
+        <Link to="/bahtsul-masail">
           <button className="flex flex-col items-center justify-center pt-2">
             <img className="h-[25px] w-[25px]" src={book} />
             <p className="text-[12px]">Bahtsul Masail</p>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const login = async (response) => {
+export const login = async (response, navigate) => {
   try {
     const result = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo", {
       headers: {
@@ -8,8 +8,8 @@ export const login = async (response) => {
       },
     });
 
-    const userCredential = result.data;
-    console.log(userCredential);
+    const userCredential = { ...result.data, role: "user" };
+    navigate("/home");
 
     localStorage.setItem("userCredential", JSON.stringify(userCredential));
   } catch (err) {

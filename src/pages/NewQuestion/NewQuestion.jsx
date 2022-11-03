@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import QuestionConfirm from "./QuestionConfirm";
+import QuestionSuccess from "./QuestionSuccess";
 
 const NewQuestion = () => {
   const { register, handleSubmit, watch } = useForm();
@@ -11,18 +11,13 @@ const NewQuestion = () => {
   console.log(watch("question"));
 
   return (
-    <div>
+    <section>
       {isToggled ? (
-        <QuestionConfirm />
+        <QuestionSuccess />
       ) : (
         <div className=" flex flex-col items-center justify-center ">
-          <div className="pt-4 pb-8 font-roboto text-xl font-bold">
-            Tanya Kyai
-          </div>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-start justify-center"
-          >
+          <div className="pt-4 pb-8 font-roboto text-xl font-bold">Tanya Kyai</div>
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start justify-center">
             <label className="block">Pertanyaan</label>
             <textarea
               className="h-[200px] w-[340px] rounded-md bg-gray p-1"
@@ -38,7 +33,7 @@ const NewQuestion = () => {
           </form>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

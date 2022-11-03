@@ -1,31 +1,27 @@
 import { Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-import { Button, Card, Navbar } from "./components";
-
-import {
-  BathulMasail,
-  Home,
-  Login,
-  NewPost,
-  NewQuestion,
-  Notification,
-  Profile,
-  Splash,
-} from "./pages";
-import QuestionConfirm from "./pages/NewQuestion/QuestionConfirm";
+import { Navbar } from "./components";
+import { BahtsulMasail, Home, Login, NewPost, NewQuestion, Notification, Profile, Splash } from "./pages";
+import { ProtectedRoutes, PublicRoutes } from "./routes";
 
 const App = () => {
   return (
     <>
+      <Navbar />
       <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
-        <Navbar />
         <Routes>
           <Route index path="/" element={<Splash />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/new-question" element={<NewQuestion />} />
+          <Route element={<PublicRoutes />}>
+            <Route index path="/login" element={<Login />} />
+          </Route>
+          <Route element={<ProtectedRoutes />}>
+            <Route index path="/home" element={<Home />} />
+            <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
+            <Route path="/new-question" element={<NewQuestion />} />
+            <Route path="/notification" element={<Notification />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
         </Routes>
       </GoogleOAuthProvider>
     </>

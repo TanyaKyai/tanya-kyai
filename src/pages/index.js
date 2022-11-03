@@ -1,4 +1,4 @@
-import BathulMasail from "./BathulMasail/BathulMasail";
+import BahtsulMasail from "./BahtsulMasail/BahtsulMasail";
 import { Home } from "./Home";
 import Login from "./Login/Login";
 import NewPost from "./NewPost/NewPost";
@@ -7,4 +7,4 @@ import Notification from "./Notification/Notification";
 import Profile from "./Profile/Profile";
 import Splash from "./Splash/Splash";
 
-export { BathulMasail, Home, Login, NewPost, NewQuestion, Notification, Profile, Splash };
+export { BahtsulMasail, Home, Login, NewPost, NewQuestion, Notification, Profile, Splash };
