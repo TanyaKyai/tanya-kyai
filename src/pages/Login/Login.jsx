@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 import { logoGreen, bookGreen } from "../../assets";
 import { Button } from "../../components";
-import { login } from "../../services/login";
+import { userLogin } from "../../services/auth";
 
 const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = useGoogleLogin({
     onSuccess: (response) => {
-      login(response, navigate);
+      userLogin(response, navigate);
     },
   });
 
