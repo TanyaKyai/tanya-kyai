@@ -8,7 +8,9 @@ export const login = async (response, navigate) => {
       },
     });
 
-    const userCredential = { ...result.data, role: "user" };
+    const userRole = result.data.email === "tanya.kyai.demo@gmail.com" ? "admin" : "user";
+
+    const userCredential = { ...result.data, userRole: userRole };
     navigate("/home");
 
     localStorage.setItem("userCredential", JSON.stringify(userCredential));

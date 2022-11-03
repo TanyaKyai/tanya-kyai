@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("userCredential"));
-
   const { name, picture } = user;
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("userCredential");
+    navigate("/login");
+  };
 
   return (
     <section className="mx-auto w-1/2">
@@ -10,8 +18,11 @@ const Profile = () => {
       <div className="mt-6 flex flex-col items-center justify-center gap-3 rounded-3xl bg-gray py-5 shadow-[0_7px_2px_0_rgba(0,0,0,0.1)]">
         <img src={picture} alt="avatar" className="h-[94px] w-[94px] rounded-full" />
         <h2 className="font-roboto text-lg font-bold text-primary">{name}</h2>
-        <button className="rounded-lg bg-white px-4 py-1 font-roboto text-xs font-bold text-primary">
-          Edit Profile
+        <button
+          className="rounded-lg bg-red-600 px-4 py-1 font-roboto text-xs font-bold text-white"
+          onClick={() => handleLogout()}
+        >
+          Logout
         </button>
       </div>
     </section>
