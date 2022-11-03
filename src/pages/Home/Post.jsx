@@ -24,8 +24,8 @@ const Post = ({ post }) => {
       </div>
       {/* Content */}
       <div className="my-5">
-        <h3 className="font-roboto">{title}</h3>
-        <p className="mt-7 whitespace-pre-line font-roboto leading-4">
+        <h3 className="font- text-lg">{title}</h3>
+        <p className="mt-7 whitespace-pre-line font-roboto text-sm">
           {body.length <= 500 ? body : `${body.slice(0, 500)}... `}
           <Link to={`/post/${id}`} className="cursor-pointer font-bold">
             {body.length <= 500 ? "" : "See more"}

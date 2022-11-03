@@ -23,7 +23,6 @@ export const postQuestions = async (data) => {
     const newQuestion = data;
     const response = await api.post("/questions", newQuestion);
     console.log(response.data);
-    console.log("data: ", data);
     // setQuestions(response.data);
   } catch (error) {
     console.log(error);

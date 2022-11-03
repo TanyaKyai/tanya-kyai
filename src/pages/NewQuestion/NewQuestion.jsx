@@ -12,12 +12,9 @@ const NewQuestion = () => {
   const [isToggled, setIsToggled] = useState(false);
 
   // console.log(watch("question"));
-
   return (
     <section>
-      {isToggled ? (
-        <QuestionSuccess />
-      ) : (
+      {!isToggled ? (
         <div className=" flex flex-col items-center justify-center ">
           <div className="pt-4 pb-8 font-roboto text-xl font-bold">
             Tanya Kyai
@@ -41,6 +38,8 @@ const NewQuestion = () => {
             </button>
           </form>
         </div>
+      ) : (
+        <QuestionSuccess />
       )}
     </section>
   );
