@@ -1,10 +1,11 @@
-import { search } from "../../assets";
+import { search, plus } from "../../assets";
 import Tab from "./Tab";
 import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
 
 import { useEffect, useState } from "react";
 import { getFatwas } from "../../services/fetch";
+import { userRole } from "../../services/auth";
 
 const Home = ({ posts }) => {
   const [active, setActive] = useState("Beranda");
@@ -24,7 +25,10 @@ const Home = ({ posts }) => {
         <h1 className="font-roboto text-[18px] leading-5 text-[#535353]">
           <span className="font-bold">hi,</span> Fulan
         </h1>
-        <img src={search} alt="searchbar" />
+        <div className="flex gap-4">
+          <img src={search} alt="searchbar" />
+          {userRole() === "admin" ? <img src={plus} alt="add-post" /> : ""}
+        </div>
       </div>
       <div className="my-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
