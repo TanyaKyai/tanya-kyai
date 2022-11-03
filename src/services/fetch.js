@@ -17,3 +17,15 @@ export const getFatwas = async (setFatwas) => {
     console.log(error);
   }
 };
+
+export const postQuestions = async (data) => {
+  try {
+    const newQuestion = data;
+    const response = await api.post("/questions", newQuestion);
+    console.log(response.data);
+    console.log("data: ", data);
+    // setQuestions(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
