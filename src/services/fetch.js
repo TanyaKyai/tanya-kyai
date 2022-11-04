@@ -1,3 +1,4 @@
+import postcss from "postcss";
 import api from "./baseUrl";
 
 export const getPosts = async (setPosts) => {
@@ -16,6 +17,24 @@ export const getFatwas = async (setFatwas) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const createPost = async (data, posts, setPosts) => {
+  try {
+    const newPost = data;
+    const response = await api.post("/posts", newPost);
+    setPosts([...posts, response.data]);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deletePost = async (id, posts, setPosts) => {
+  try {
+    await api.delete(`/posts/${id}`);
+    const postList = posts.filter((post) => post.id !== id);
+    setPosts(postList);
+  } catch (error) {}
 };
 
 export const createQuestion = async (data) => {
