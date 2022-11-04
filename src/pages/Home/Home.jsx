@@ -8,7 +8,7 @@ import { userRole } from "../../services/auth";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Home = ({ posts }) => {
+const Home = ({ posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
   const [fatwas, setFatwas] = useState([]);
 
@@ -27,10 +27,14 @@ const Home = ({ posts }) => {
           <span className="font-bold">hi,</span> Fulan
         </h1>
         <div className="flex gap-4">
-          <img src={search} alt="searchbar" />
+          <div className="h-[24px] w-[24px]">
+            <img src={search} alt="searchbar" className="h-full w-full object-contain" />
+          </div>
           {userRole() === "admin" ? (
             <Link to="/new-post">
-              <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+              <div className="h-[24px] w-[24px]">
+                <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+              </div>
             </Link>
           ) : (
             ""
@@ -44,7 +48,7 @@ const Home = ({ posts }) => {
           </Tab>
         ))}
       </div>
-      {active === "Beranda" ? <PostList posts={posts} /> : <PerpustakaanFatwa fatwas={fatwas} />}
+      {active === "Beranda" ? <PostList posts={posts} setPosts={setPosts} /> : <PerpustakaanFatwa fatwas={fatwas} />}
     </section>
   );
 };

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
 import { tripleDots, x, share, love, comment, avatar } from "../../assets";
+import { deletePost } from "../../services/fetch";
 
-const Post = ({ post }) => {
+const Post = ({ post, posts, setPosts }) => {
   const { id, title, body } = post;
 
   return (
@@ -17,7 +18,7 @@ const Post = ({ post }) => {
           <button>
             <img src={tripleDots} alt="triple-dots" className="h-[20px] w-[20px]" />
           </button>
-          <button>
+          <button onClick={() => deletePost(id, posts, setPosts)}>
             <img src={x} alt="close" className="h-[16px] w-[16px]" />
           </button>
         </div>
