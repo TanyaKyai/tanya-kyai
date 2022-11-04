@@ -35,8 +35,8 @@ const App = () => {
           </Route>
           <Route element={<ProtectedRoutes />}>
             <Route element={<Navbar />}>
-              <Route index path="/home" element={<Home posts={posts} />} />
-              <Route path="/new-post" element={<NewPost />} />
+              <Route index path="/home" element={<Home posts={posts} setPosts={setPosts} />} />
+              <Route path="/new-post" element={<NewPost posts={posts} setPosts={setPosts} />} />
               <Route path="/post/:id" element={<PostDetail posts={posts} />} />
               <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
               <Route path="/new-question" element={<NewQuestion />} />
