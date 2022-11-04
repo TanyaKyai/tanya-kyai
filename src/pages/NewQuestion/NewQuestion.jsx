@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import QuestionSuccess from "./QuestionSuccess";
-import { postQuestions } from "../../services/fetch";
+import { createQuestion } from "../../services/fetch";
 
 const NewQuestion = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    postQuestions(data);
+    createQuestion(data);
     setIsToggled(true);
   };
   const [isToggled, setIsToggled] = useState(false);

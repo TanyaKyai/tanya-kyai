@@ -18,7 +18,7 @@ export const getFatwas = async (setFatwas) => {
   }
 };
 
-export const postQuestions = async (data) => {
+export const createQuestion = async (data) => {
   try {
     const newQuestion = data;
     const response = await api.post("/questions", newQuestion);

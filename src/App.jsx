@@ -3,7 +3,18 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect, useState } from "react";
 
 import { Navbar } from "./components";
-import { BahtsulMasail, Home, Login, NewPost, NewQuestion, Notification, Profile, Splash, PostDetail } from "./pages";
+import {
+  BahtsulMasail,
+  Home,
+  Login,
+  NewPost,
+  NewQuestion,
+  Notification,
+  Profile,
+  QuestionList,
+  Splash,
+  PostDetail,
+} from "./pages";
 import { ProtectedRoutes, PublicRoutes } from "./routes";
 import { getPosts } from "./services/fetch";
 
@@ -25,9 +36,11 @@ const App = () => {
           <Route element={<ProtectedRoutes />}>
             <Route element={<Navbar />}>
               <Route index path="/home" element={<Home posts={posts} />} />
+              <Route path="/new-post" element={<NewPost />} />
               <Route path="/post/:id" element={<PostDetail posts={posts} />} />
               <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
               <Route path="/new-question" element={<NewQuestion />} />
+              <Route path="/question-list" element={<QuestionList />} />
               <Route path="/notification" element={<Notification />} />
               <Route path="/profile" element={<Profile />} />
             </Route>

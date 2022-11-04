@@ -2,10 +2,11 @@ import { search, plus } from "../../assets";
 import Tab from "./Tab";
 import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
-
-import { useEffect, useState } from "react";
 import { getFatwas } from "../../services/fetch";
 import { userRole } from "../../services/auth";
+
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = ({ posts }) => {
   const [active, setActive] = useState("Beranda");
@@ -27,7 +28,13 @@ const Home = ({ posts }) => {
         </h1>
         <div className="flex gap-4">
           <img src={search} alt="searchbar" />
-          {userRole() === "admin" ? <img src={plus} alt="add-post" /> : ""}
+          {userRole() === "admin" ? (
+            <Link to="/new-post">
+              <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <div className="my-4 flex w-full rounded-2xl bg-gray">

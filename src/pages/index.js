@@ -6,6 +6,7 @@ import NewQuestion from "./NewQuestion/NewQuestion";
 import Notification from "./Notification/Notification";
 import PostDetail from "./PostDetail/PostDetail";
 import Profile from "./Profile/Profile";
+import QuestionList from "./QuestionList/QuestionList";
 import Splash from "./Splash/Splash";
 
-export { BahtsulMasail, Home, Login, NewPost, NewQuestion, Notification, PostDetail, Profile, Splash };
+export { BahtsulMasail, Home, Login, NewPost, NewQuestion, Notification, PostDetail, Profile, QuestionList, Splash };
