@@ -1,16 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 import { leftArrow } from "../../assets";
+import { createPost } from "../../services/fetch";
 
-const NewPost = () => {
+const NewPost = ({ posts, setPosts }) => {
+  const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    createPost(data, posts, setPosts);
+    navigate("/home");
+    reset();
+  };
+
   return (
-    <section className="mx-auto h-screen overflow-hidden px-8 md:w-3/4 lg:w-1/2">
-      <div className="mt-12 flex items-center justify-between">
-        <Link to="/home">
-          <img src={leftArrow} alt="left-arrow" />
-        </Link>
-        <h1 className="font-roboto text-base font-bold">Kirim Post</h1>
-        <button className="rounded-md bg-[#DBDBDB] px-3 py-1 font-roboto text-base font-bold">Post</button>
+    <section className="h-screen w-full bg-gray">
+      <div className="mx-auto px-8 md:w-3/4 lg:w-1/2">
+        <div className="flex items-center pt-12">
+          <Link to="/home">
+            <img src={leftArrow} alt="left-arrow" />
+          </Link>
+          <h1 className="mx-auto font-roboto text-base font-bold">Kirim Post</h1>
+        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-12 flex flex-col gap-4">
+          <input
+            {...register("title", { required: true })}
+            className="rounded-2xl py-2 px-4 outline-none"
+            placeholder="Judul post"
+          />
+          <textarea
+            {...register("body", { required: true })}
+            className="h-[200px] rounded-2xl py-2 px-4 outline-none"
+            placeholder="Isi post"
+          />
+          <button
+            type="submit"
+            className="mx-auto mt-6 rounded-md bg-[#DBDBDB] px-8 py-1 font-roboto text-base font-bold"
+          >
+            Post
+          </button>
+        </form>
       </div>
     </section>
   );
