@@ -19,7 +19,7 @@ const Profile = () => {
         <img src={picture} alt="avatar" className="h-[94px] w-[94px] rounded-full" />
         <h2 className="font-roboto text-lg font-bold text-primary">{name}</h2>
         <button
-          className="rounded-lg bg-red-600 px-4 py-1 font-roboto text-xs font-bold text-white"
+          className="rounded-lg bg-red-600 px-4 py-1 font-roboto text-base font-bold text-white transition-all"
           onClick={() => handleLogout()}
         >
           Logout
