@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { tripleDots, x, share, love, comment, avatar } from "../../assets";
+import { userRole } from "../../services/auth";
 import { deletePost } from "../../services/fetch";
 
 const Post = ({ post, posts, setPosts }) => {
@@ -18,9 +19,13 @@ const Post = ({ post, posts, setPosts }) => {
           <button>
             <img src={tripleDots} alt="triple-dots" className="h-[20px] w-[20px]" />
           </button>
-          <button onClick={() => deletePost(id, posts, setPosts)}>
-            <img src={x} alt="close" className="h-[16px] w-[16px]" />
-          </button>
+          {userRole() === "admin" ? (
+            <button onClick={() => deletePost(id, posts, setPosts)}>
+              <img src={x} alt="close" className="h-[16px] w-[16px]" />
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       {/* Content */}
