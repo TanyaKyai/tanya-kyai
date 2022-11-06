@@ -20,7 +20,7 @@ import profile from "./navbar/profile.svg";
 
 import logoWhite from "./splash/logo-white.svg";
 import tripleDiamonds from "./splash/triple-diamonds.svg";
-import bookWhite from "./splash/book-white.svg";
+import fontLogoWhite from "./splash/font-logo-white.svg";
 
 import bookGreen from "./login/book-green.svg";
 import logoGreen from "./login/logo-green.svg";
@@ -47,7 +47,7 @@ export {
   profile,
   logoWhite,
   tripleDiamonds,
-  bookWhite,
+  fontLogoWhite,
   bookGreen,
   logoGreen,
   leftArrow,
