@@ -47,3 +47,12 @@ export const createQuestion = async (data) => {
     console.log(error);
   }
 };
+
+export const getQuestions = async (setQuestionsList) => {
+  try {
+    const response = await api.get("/questions");
+    setQuestionsList(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
