@@ -14,26 +14,26 @@ const NewQuestion = () => {
   return (
     <section>
       {!isToggled ? (
-        <div className=" flex flex-col items-center justify-center ">
-          <div className="mt-12  pb-8 font-roboto text-xl font-bold">
+        <div className="mx-auto px-8 md:w-3/4 lg:w-1/2">
+          <div className="pt-12 text-center font-roboto text-xl font-bold">
             Tanya Kyai
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-start justify-center"
+            className="mt-12 flex flex-col gap-4"
           >
-            <label className="block">Pertanyaan</label>
             <textarea
-              className="h-[200px] w-[340px] rounded-md bg-gray p-1"
+              className="h-[200px] rounded-2xl bg-gray py-2 px-4 outline-none"
               type="text"
+              placeholder="Isi pertanyaan"
               {...register("question", { required: true })}
             />
             <button
-              className="mt-[20px] rounded-md bg-primary py-2 px-[152px] text-white "
+              className="mx-auto mt-6 rounded-md bg-primary px-8 py-1 font-roboto text-base font-bold text-white"
               onClick={() => handleSubmit()}
               type="submit"
             >
-              Kirim
+              Kirim Pertanyaan
             </button>
           </form>
         </div>
