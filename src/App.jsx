@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect, useState } from "react";
 
-import { Navbar } from "./components";
+import { Missing, Navbar } from "./components";
 import {
   BahtsulMasail,
   Home,
@@ -45,6 +45,7 @@ const App = () => {
               <Route path="/profile" element={<Profile />} />
             </Route>
           </Route>
+          <Route path="*" element={<Missing />} />
         </Routes>
       </GoogleOAuthProvider>
     </>
