@@ -16,7 +16,7 @@ import {
   PostDetail,
 } from "./pages";
 import { ProtectedRoutes, PublicRoutes } from "./routes";
-import { getPosts } from "./services/fetch";
+import { getPosts } from "./services/crudServices";
 
 const App = () => {
   const [posts, setPosts] = useState([]);

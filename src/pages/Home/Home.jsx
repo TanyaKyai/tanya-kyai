@@ -2,7 +2,7 @@ import { search, plus } from "../../assets";
 import Tab from "./Tab";
 import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
-import { getFatwas } from "../../services/fetch";
+import { getFatwas } from "../../services/crudServices";
 import { userRole } from "../../services/auth";
 
 import { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ const Home = ({ posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
   const [fatwas, setFatwas] = useState([]);
   const user = JSON.parse(localStorage.getItem("userCredential"));
-  const { name, picture } = user;
+  const { name } = user;
   const handleTabActive = (item) => {
     setActive(item);
   };
@@ -29,20 +29,12 @@ const Home = ({ posts, setPosts }) => {
         </h1>
         <div className="flex gap-4">
           <div className="h-[24px] w-[24px]">
-            <img
-              src={search}
-              alt="searchbar"
-              className="h-full w-full object-contain"
-            />
+            <img src={search} alt="searchbar" className="h-full w-full object-contain" />
           </div>
           {userRole() === "admin" ? (
             <Link to="/new-post">
               <div className="h-[24px] w-[24px]">
-                <img
-                  src={plus}
-                  alt="add-post"
-                  className="h-full w-full object-contain"
-                />
+                <img src={plus} alt="add-post" className="h-full w-full object-contain" />
               </div>
             </Link>
           ) : (
@@ -52,21 +44,12 @@ const Home = ({ posts, setPosts }) => {
       </div>
       <div className="my-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
-          <Tab
-            key={index}
-            active={active}
-            onClick={handleTabActive}
-            item={item}
-          >
+          <Tab key={index} active={active} onClick={handleTabActive} item={item}>
             {item}
           </Tab>
         ))}
       </div>
-      {active === "Beranda" ? (
-        <PostList posts={posts} setPosts={setPosts} />
-      ) : (
-        <PerpustakaanFatwa fatwas={fatwas} />
-      )}
+      {active === "Beranda" ? <PostList posts={posts} setPosts={setPosts} /> : <PerpustakaanFatwa fatwas={fatwas} />}
     </section>
   );
 };

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { tripleDots, x, share, love, comment, avatar } from "../../assets";
 import { userRole } from "../../services/auth";
-import { deletePost } from "../../services/fetch";
+import { deletePost } from "../../services/crudServices";
 
 const Post = ({ post, posts, setPosts }) => {
   const { id, title, body } = post;

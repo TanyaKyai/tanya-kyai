@@ -1,4 +1,3 @@
-import postcss from "postcss";
 import api from "./baseUrl";
 
 export const getPosts = async (setPosts) => {

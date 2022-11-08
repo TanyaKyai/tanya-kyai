@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { leftArrow } from "../../assets";
-import { createPost } from "../../services/fetch";
+import { createPost } from "../../services/crudServices";
 
 const NewPost = ({ posts, setPosts }) => {
   const { register, handleSubmit, reset } = useForm();
