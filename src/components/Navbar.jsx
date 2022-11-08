@@ -59,9 +59,6 @@ const adminNav = [
   },
 ];
 
-const activeLink = " text-primary ";
-const normalLink = "";
-
 const Navbar = () => {
   return (
     <>
@@ -72,9 +69,7 @@ const Navbar = () => {
                 <NavLink
                   to={item.link}
                   key={index}
-                  className={({ isActive }) =>
-                    isActive ? activeLink : normalLink
-                  }
+                  className={({ isActive }) => (isActive ? "text-primary" : "text-black")}
                 >
                   <button className="flex flex-col items-center justify-center pt-2">
                     <img className="h-[25px] w-[25px]" src={item.img} />
@@ -83,13 +78,7 @@ const Navbar = () => {
                 </NavLink>
               ))
             : userNav.map((item, index) => (
-                <NavLink
-                  to={item.link}
-                  key={index}
-                  className={({ isActive }) =>
-                    isActive ? activeLink : normalLink
-                  }
-                >
+                <NavLink to={item.link} key={index} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
                   <button className="flex flex-col items-center justify-center pt-2">
                     <img className="h-[25px] w-[25px]" src={item.img} />
                     <p className="text-[12px]">{item.name}</p>
