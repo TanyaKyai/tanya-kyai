@@ -11,8 +11,10 @@ import { Link } from "react-router-dom";
 const Home = ({ posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
   const [fatwas, setFatwas] = useState([]);
+
   const user = JSON.parse(localStorage.getItem("userCredential"));
   const { name } = user;
+
   const handleTabActive = (item) => {
     setActive(item);
   };
@@ -32,11 +34,19 @@ const Home = ({ posts, setPosts }) => {
             <img src={search} alt="searchbar" className="h-full w-full object-contain" />
           </div>
           {userRole() === "admin" ? (
-            <Link to="/new-post">
-              <div className="h-[24px] w-[24px]">
-                <img src={plus} alt="add-post" className="h-full w-full object-contain" />
-              </div>
-            </Link>
+            active === "Beranda" ? (
+              <Link to="/new-post">
+                <div className="h-[24px] w-[24px]">
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+                </div>
+              </Link>
+            ) : (
+              <Link to="/new-fatwa">
+                <div className="h-[24px] w-[24px]">
+                  <img src={plus} alt="add-fatwa" className="h-full w-full object-contain" />
+                </div>
+              </Link>
+            )
           ) : (
             ""
           )}

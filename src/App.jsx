@@ -14,6 +14,7 @@ import {
   QuestionList,
   Splash,
   PostDetail,
+  NewFatwa,
 } from "./pages";
 import { ProtectedRoutes, PublicRoutes } from "./routes";
 import { getPosts } from "./services/crudServices";
@@ -39,6 +40,7 @@ const App = () => {
               <Route path="/new-post" element={<NewPost posts={posts} setPosts={setPosts} />} />
               <Route path="/post/:id" element={<PostDetail posts={posts} />} />
               <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
+              <Route path="/new-fatwa" element={<NewFatwa />} />
               <Route path="/new-question" element={<NewQuestion />} />
               <Route path="/question-list" element={<QuestionList />} />
               <Route path="/notification" element={<Notification />} />
