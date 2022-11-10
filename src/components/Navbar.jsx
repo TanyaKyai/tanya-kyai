@@ -1,5 +1,9 @@
 import { NavLink, Outlet } from "react-router-dom";
-
+import { RiHome7Fill } from "react-icons/ri";
+import { TbBook } from "react-icons/tb";
+import { FiEdit } from "react-icons/fi";
+import { IoNotifications } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
 import { book, create, home, notification, profile } from "../assets";
 import { userRole } from "../services/auth";
 
@@ -7,27 +11,27 @@ const userNav = [
   {
     link: "/home",
     name: "Home",
-    img: home,
+    Img: <RiHome7Fill />,
   },
   {
     link: "/bahtsul-masail",
     name: "Bahtsul Masail",
-    img: book,
+    Img: <TbBook />,
   },
   {
     link: "/new-question",
     name: "Tanya Kyai",
-    img: create,
+    Img: <FiEdit />,
   },
   {
     link: "/notification",
     name: "Pemberitahuan",
-    img: notification,
+    Img: <IoNotifications />,
   },
   {
     link: "/profile",
     name: "Profil",
-    img: profile,
+    Img: <CgProfile />,
   },
 ];
 
@@ -35,27 +39,27 @@ const adminNav = [
   {
     link: "/home",
     name: "Home",
-    img: home,
+    Img: <RiHome7Fill />,
   },
   {
     link: "/bahtsul-masail",
     name: "Bahtsul Masail",
-    img: book,
+    Img: <TbBook />,
   },
   {
     link: "/question-list",
     name: "Daftar Pertanyaan",
-    img: create,
+    Img: <FiEdit />,
   },
   {
     link: "/notification",
     name: "Pemberitahuan",
-    img: notification,
+    Img: <IoNotifications />,
   },
   {
     link: "/profile",
     name: "Profil",
-    img: profile,
+    Img: <CgProfile />,
   },
 ];
 
@@ -65,26 +69,33 @@ const Navbar = () => {
       <nav className="z-50 flex justify-center">
         <div className="fixed bottom-0 flex w-full  justify-evenly rounded-t-3xl bg-white drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] sm:w-[476px]">
           {userRole() === "admin"
-            ? adminNav.map((item, index) => (
-                <NavLink
-                  to={item.link}
-                  key={index}
-                  className={({ isActive }) => (isActive ? "text-primary" : "text-black")}
-                >
-                  <button className="flex flex-col items-center justify-center pt-2">
-                    <img className="h-[25px] w-[25px]" src={item.img} />
-                    <p className="text-[12px]">{item.name}</p>
-                  </button>
-                </NavLink>
-              ))
+            ? adminNav.map((item, index) => {
+                console.log(item.Img);
+                return (
+                  <NavLink
+                    to={item.link}
+                    key={index}
+                    className={({ isActive }) =>
+                      isActive ? "text-primary" : "text-black"
+                    }
+                  >
+                    <button className="flex flex-col items-center justify-center pt-2">
+                      {item.Img}
+                      <p className="text-[12px]">{item.name}</p>
+                    </button>
+                  </NavLink>
+                );
+              })
             : userNav.map((item, index) => (
                 <NavLink
                   to={item.link}
                   key={index}
-                  className={({ isActive }) => (isActive ? "text-primary" : "text-black")}
+                  className={({ isActive }) =>
+                    isActive ? "text-primary" : "text-black"
+                  }
                 >
                   <button className="flex flex-col items-center justify-center pt-2">
-                    <img className="h-[25px] w-[25px]" src={item.img} />
+                    {item.Img}
                     <p className="text-[12px]">{item.name}</p>
                   </button>
                 </NavLink>
