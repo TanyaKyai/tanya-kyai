@@ -29,36 +29,32 @@ const Home = ({ posts, setPosts }) => {
         <h1 className="font-roboto text-[18px] leading-5 text-[#535353]">
           <span className="font-bold">hi,</span> {name}
         </h1>
-        <div className="flex gap-4">
-          <div className="h-[24px] w-[24px]">
-            <img src={search} alt="searchbar" className="h-full w-full object-contain" />
-          </div>
-          {userRole() === "admin" ? (
-            active === "Beranda" ? (
-              <Link to="/new-post">
-                <div className="h-[24px] w-[24px]">
-                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
-                </div>
-              </Link>
-            ) : (
-              <Link to="/new-fatwa">
-                <div className="h-[24px] w-[24px]">
-                  <img src={plus} alt="add-fatwa" className="h-full w-full object-contain" />
-                </div>
-              </Link>
-            )
-          ) : (
-            ""
-          )}
-        </div>
       </div>
-      <div className="my-4 flex w-full rounded-2xl bg-gray">
+      <div className="mt-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
           <Tab key={index} active={active} onClick={handleTabActive} item={item}>
             {item}
           </Tab>
         ))}
       </div>
+      {active === "Beranda" ? (
+        <div className="mt-4 flex justify-end gap-4">
+          <div className="h-[24px] w-[24px]">
+            <img src={search} alt="searchbar" className="h-full w-full object-contain" />
+          </div>
+          {userRole() === "admin" ? (
+            <Link to="/new-post">
+              <div className="h-[24px] w-[24px]">
+                <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+              </div>
+            </Link>
+          ) : (
+            ""
+          )}
+        </div>
+      ) : (
+        ""
+      )}
       {active === "Beranda" ? <PostList posts={posts} setPosts={setPosts} /> : <PerpustakaanFatwa fatwas={fatwas} />}
     </section>
   );
