@@ -4,7 +4,11 @@ import QuestionSuccess from "./QuestionSuccess";
 import { createQuestion } from "../../services/crudServices";
 
 const NewQuestion = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => {
     createQuestion(data);
     setIsToggled(true);
@@ -23,6 +27,7 @@ const NewQuestion = () => {
               placeholder="Isi pertanyaan"
               {...register("question", { required: true })}
             />
+            {errors.question && <span className="mt-2 font-roboto text-red-500">Pertanyaan tidak bisa kosong</span>}
             <button
               className="mx-auto mt-6 rounded-md bg-primary px-8 py-1 font-roboto text-base font-bold text-white"
               onClick={() => handleSubmit()}
