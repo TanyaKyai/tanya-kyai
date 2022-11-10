@@ -5,7 +5,12 @@ import { leftArrow } from "../../assets";
 import { createPost } from "../../services/crudServices";
 
 const NewPost = ({ posts, setPosts }) => {
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
@@ -29,11 +34,13 @@ const NewPost = ({ posts, setPosts }) => {
             className="rounded-2xl py-2 px-4 outline-none"
             placeholder="Judul post"
           />
+          {errors.title && <span className="mt-2 font-roboto text-red-500">Judul tidak bisa kosong</span>}
           <textarea
             {...register("body", { required: true })}
             className="h-[200px] rounded-2xl py-2 px-4 outline-none"
             placeholder="Isi post"
           />
+          {errors.body && <span className="mt-2 font-roboto text-red-500">Konten tidak bisa kosong</span>}
           <button
             type="submit"
             className="mx-auto mt-6 rounded-md bg-[#DBDBDB] px-8 py-1 font-roboto text-base font-bold"
