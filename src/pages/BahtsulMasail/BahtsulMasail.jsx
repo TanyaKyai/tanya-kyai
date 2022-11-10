@@ -46,10 +46,12 @@ const BahtsulMasail = () => {
             <label className="mb-2">Unggah dokumen</label>
             <input {...register("description")} className="h-[200px] rounded-2xl py-2 px-4 outline-none" />
           </div>
-          <input
+          <button
             type="submit"
             className="mx-auto mt-6 rounded-md bg-primary px-8 py-1 font-roboto text-base font-bold text-white"
-          />
+          >
+            Simpan
+          </button>
         </form>
       </div>
     </section>

@@ -21,13 +21,15 @@ const NewQuestion = () => {
         <div className="mx-auto px-8 md:w-3/4 lg:w-1/2">
           <div className="pt-12 text-center font-roboto text-xl font-bold">Tanya Kyai</div>
           <form onSubmit={handleSubmit(onSubmit)} className="mt-12 flex flex-col gap-4">
-            <textarea
-              className="h-[200px] rounded-2xl bg-gray py-2 px-4 outline-none"
-              type="text"
-              placeholder="Isi pertanyaan"
-              {...register("question", { required: true })}
-            />
-            {errors.question && <span className="mt-2 font-roboto text-red-500">Pertanyaan tidak bisa kosong</span>}
+            <div className="flex flex-col">
+              <textarea
+                className="h-[200px] rounded-2xl bg-gray py-2 px-4 outline-none"
+                type="text"
+                placeholder="Isi pertanyaan"
+                {...register("question", { required: true })}
+              />
+              {errors.question && <span className="mt-2 font-roboto text-red-500">Pertanyaan tidak bisa kosong</span>}
+            </div>
             <button
               className="mx-auto mt-6 rounded-md bg-primary px-8 py-1 font-roboto text-base font-bold text-white"
               onClick={() => handleSubmit()}

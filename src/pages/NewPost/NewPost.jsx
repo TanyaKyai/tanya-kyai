@@ -29,18 +29,22 @@ const NewPost = ({ posts, setPosts }) => {
           <h1 className="mx-auto font-roboto text-base font-bold">Kirim Post</h1>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-12 flex flex-col gap-4">
-          <input
-            {...register("title", { required: true })}
-            className="rounded-2xl py-2 px-4 outline-none"
-            placeholder="Judul post"
-          />
-          {errors.title && <span className="mt-2 font-roboto text-red-500">Judul tidak bisa kosong</span>}
-          <textarea
-            {...register("body", { required: true })}
-            className="h-[200px] rounded-2xl py-2 px-4 outline-none"
-            placeholder="Isi post"
-          />
-          {errors.body && <span className="mt-2 font-roboto text-red-500">Konten tidak bisa kosong</span>}
+          <div className="flex flex-col">
+            <input
+              {...register("title", { required: true })}
+              className="rounded-2xl py-2 px-4 outline-none"
+              placeholder="Judul post"
+            />
+            {errors.title && <span className="mt-2 font-roboto text-red-500">Judul tidak bisa kosong</span>}
+          </div>
+          <div className="flex flex-col">
+            <textarea
+              {...register("body", { required: true })}
+              className="h-[200px] rounded-2xl py-2 px-4 outline-none"
+              placeholder="Isi post"
+            />
+            {errors.body && <span className="mt-2 font-roboto text-red-500">Konten tidak bisa kosong</span>}
+          </div>
           <button
             type="submit"
             className="mx-auto mt-6 rounded-md bg-[#DBDBDB] px-8 py-1 font-roboto text-base font-bold"
