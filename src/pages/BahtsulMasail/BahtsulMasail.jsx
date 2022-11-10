@@ -11,7 +11,10 @@ const BahtsulMasail = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
 
   return (
     <section className="h-full w-full bg-white pb-14">
@@ -45,7 +48,15 @@ const BahtsulMasail = () => {
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Unggah dokumen</label>
-            <input {...register("document")} className="rounded-2xl py-2 px-4 outline-none" />
+            <div className="flex h-[100px] w-full items-center justify-center rounded-2xl bg-white">
+              <input
+                {...register("document")}
+                id="fileUpload"
+                type="file"
+                className="flex cursor-pointer"
+                style={{ textAlignLast: "center" }}
+              />
+            </div>
           </div>
           <button
             type="submit"
