@@ -2,7 +2,7 @@ import Post from "./Post";
 
 const PostList = ({ posts, setPosts }) => {
   return (
-    <div className="flex max-h-[75vh] flex-col gap-4 overflow-y-auto p-8">
+    <div className="mt-4 flex max-h-[75vh] flex-col gap-4 overflow-y-auto">
       {posts?.length ? (
         posts
           ?.slice(0)
