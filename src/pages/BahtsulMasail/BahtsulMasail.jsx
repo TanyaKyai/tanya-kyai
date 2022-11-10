@@ -8,6 +8,7 @@ const BahtsulMasail = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
@@ -44,7 +45,7 @@ const BahtsulMasail = () => {
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Unggah dokumen</label>
-            <input {...register("description")} className="h-[200px] rounded-2xl py-2 px-4 outline-none" />
+            <input {...register("document")} className="rounded-2xl py-2 px-4 outline-none" />
           </div>
           <button
             type="submit"
