@@ -11,27 +11,27 @@ const userNav = [
   {
     link: "/home",
     name: "Home",
-    Img: <RiHome7Fill />,
+    Img: <RiHome7Fill size={20} />,
   },
   {
     link: "/bahtsul-masail",
     name: "Bahtsul Masail",
-    Img: <TbBook />,
+    Img: <TbBook size={20} />,
   },
   {
     link: "/new-question",
     name: "Tanya Kyai",
-    Img: <FiEdit />,
+    Img: <FiEdit size={20} />,
   },
   {
     link: "/notification",
     name: "Pemberitahuan",
-    Img: <IoNotifications />,
+    Img: <IoNotifications size={20} />,
   },
   {
     link: "/profile",
     name: "Profil",
-    Img: <CgProfile />,
+    Img: <CgProfile size={20} />,
   },
 ];
 
@@ -39,27 +39,27 @@ const adminNav = [
   {
     link: "/home",
     name: "Home",
-    Img: <RiHome7Fill />,
+    Img: <RiHome7Fill size={20} />,
   },
   {
     link: "/bahtsul-masail",
     name: "Bahtsul Masail",
-    Img: <TbBook />,
+    Img: <TbBook size={20} />,
   },
   {
     link: "/question-list",
     name: "Daftar Pertanyaan",
-    Img: <FiEdit />,
+    Img: <FiEdit size={20} />,
   },
   {
     link: "/notification",
     name: "Pemberitahuan",
-    Img: <IoNotifications />,
+    Img: <IoNotifications size={20} />,
   },
   {
     link: "/profile",
     name: "Profil",
-    Img: <CgProfile />,
+    Img: <CgProfile size={20} />,
   },
 ];
 
@@ -75,9 +75,7 @@ const Navbar = () => {
                   <NavLink
                     to={item.link}
                     key={index}
-                    className={({ isActive }) =>
-                      isActive ? "text-primary" : "text-black"
-                    }
+                    className={({ isActive }) => (isActive ? "text-primary" : "text-black")}
                   >
                     <button className="flex flex-col items-center justify-center pt-2">
                       {item.Img}
@@ -90,9 +88,7 @@ const Navbar = () => {
                 <NavLink
                   to={item.link}
                   key={index}
-                  className={({ isActive }) =>
-                    isActive ? "text-primary" : "text-black"
-                  }
+                  className={({ isActive }) => (isActive ? "text-primary" : "text-black")}
                 >
                   <button className="flex flex-col items-center justify-center pt-2">
                     {item.Img}
