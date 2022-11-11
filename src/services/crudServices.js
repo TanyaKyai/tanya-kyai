@@ -18,9 +18,10 @@ export const getFatwas = async (setFatwas) => {
   }
 };
 
-export const createPost = async (data, posts, setPosts) => {
+export const createPost = async (data, posts, setPosts, question) => {
   try {
-    const newPost = data;
+    const newPost = { ...data, question };
+    console.log(newPost);
     const response = await api.post("/posts", newPost);
     setPosts([...posts, response.data]);
   } catch (error) {
@@ -40,8 +41,6 @@ export const createQuestion = async (data) => {
   try {
     const newQuestion = data;
     const response = await api.post("/questions", newQuestion);
-    console.log(response.data);
-    // setQuestions(response.data);
   } catch (error) {
     console.log(error);
   }
