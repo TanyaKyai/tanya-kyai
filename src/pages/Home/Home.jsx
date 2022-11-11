@@ -8,7 +8,7 @@ import { userRole } from "../../services/auth";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Home = ({ posts, setPosts }) => {
+const Home = ({ activeQuestion, posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
   const [fatwas, setFatwas] = useState([]);
 
@@ -55,7 +55,11 @@ const Home = ({ posts, setPosts }) => {
       ) : (
         ""
       )}
-      {active === "Beranda" ? <PostList posts={posts} setPosts={setPosts} /> : <PerpustakaanFatwa fatwas={fatwas} />}
+      {active === "Beranda" ? (
+        <PostList posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />
+      ) : (
+        <PerpustakaanFatwa fatwas={fatwas} />
+      )}
     </section>
   );
 };
