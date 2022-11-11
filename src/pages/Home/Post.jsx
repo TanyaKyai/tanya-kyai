@@ -5,7 +5,7 @@ import { userRole } from "../../services/auth";
 import { deletePost } from "../../services/crudServices";
 
 const Post = ({ post, posts, setPosts }) => {
-  const { id, title, body } = post;
+  const { id, question, body } = post;
 
   return (
     <div className="rounded-2xl bg-gray px-5 py-4">
@@ -30,8 +30,16 @@ const Post = ({ post, posts, setPosts }) => {
       </div>
       {/* Content */}
       <div className="my-5">
-        <h3 className="font- text-lg">{title}</h3>
-        <p className="mt-7 whitespace-pre-line font-roboto text-sm">
+        {question?.length > 0 ? (
+          <div className="mt-7">
+            <h2 className="font-roboto text-sm font-semibold">Pertanyaan</h2>
+            <p className="mt-4">{question?.length > 0 ? question : ""}</p>
+            <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
+          </div>
+        ) : (
+          ""
+        )}
+        <p className={`${question?.length > 0 ? "mt-4" : "mt-7"} whitespace-pre-line font-roboto text-sm`}>
           {body.length <= 500 ? body : `${body.slice(0, 500)}... `}
           <Link to={`/post/${id}`} className="cursor-pointer font-bold">
             {body.length <= 500 ? "" : "See more"}
