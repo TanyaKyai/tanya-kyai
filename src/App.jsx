@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect, useState } from "react";
 
@@ -21,13 +21,22 @@ import { getPosts } from "./services/crudServices";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [activeQuestion, setActiveQuestion] = useState(null);
+
+  const location = useLocation();
 
   useEffect(() => {
     getPosts(setPosts);
   }, []);
 
+  useEffect(() => {
+    if (location.pathname !== "/new-post") {
+      setActiveQuestion("");
+    }
+  }, [location]);
+
   return (
-    <>
+    <div className="h-full">
       <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
         <Routes>
           <Route element={<PublicRoutes />}>
@@ -36,13 +45,27 @@ const App = () => {
           </Route>
           <Route element={<ProtectedRoutes />}>
             <Route element={<Navbar />}>
-              <Route index path="/home" element={<Home posts={posts} setPosts={setPosts} />} />
-              <Route path="/new-post" element={<NewPost posts={posts} setPosts={setPosts} />} />
-              <Route path="/post/:id" element={<PostDetail posts={posts} />} />
+              <Route
+                index
+                path="/home"
+                element={<Home posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />}
+              />
+              <Route
+                path="/new-post"
+                element={
+                  <NewPost
+                    posts={posts}
+                    setPosts={setPosts}
+                    activeQuestion={activeQuestion}
+                    setActiveQuestion={setActiveQuestion}
+                  />
+                }
+              />
+              <Route path="/post/:id" element={<PostDetail posts={posts} activeQuestion={activeQuestion} />} />
               <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
               <Route path="/new-fatwa" element={<NewFatwa />} />
               <Route path="/new-question" element={<NewQuestion />} />
-              <Route path="/question-list" element={<QuestionList />} />
+              <Route path="/question-list" element={<QuestionList setActiveQuestion={setActiveQuestion} />} />
               <Route path="/notification" element={<Notification />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
@@ -50,7 +73,7 @@ const App = () => {
           <Route path="*" element={<Missing />} />
         </Routes>
       </GoogleOAuthProvider>
-    </>
+    </div>
   );
 };
 
