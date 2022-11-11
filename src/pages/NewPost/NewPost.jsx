@@ -4,23 +4,26 @@ import { useForm } from "react-hook-form";
 import { leftArrow } from "../../assets";
 import { createPost } from "../../services/crudServices";
 
-const NewPost = ({ posts, setPosts }) => {
+const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+  const { question } = activeQuestion || {};
+
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    createPost(data, posts, setPosts);
+    createPost(data, posts, setPosts, question);
+    setActiveQuestion(null);
     navigate("/home");
     reset();
   };
 
   return (
-    <section className="h-screen w-full bg-gray">
+    <section className="min-h-screen w-full bg-gray">
       <div className="mx-auto px-8 md:w-3/4 lg:w-1/2">
         <div className="flex items-center pt-12">
           <Link to="/home">
@@ -28,15 +31,17 @@ const NewPost = ({ posts, setPosts }) => {
           </Link>
           <h1 className="mx-auto font-roboto text-base font-bold">Kirim Post</h1>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-12 flex flex-col gap-4">
-          <div className="flex flex-col">
-            <input
-              {...register("title", { required: true })}
-              className="rounded-2xl py-2 px-4 outline-none"
-              placeholder="Judul post"
-            />
-            {errors.title && <span className="mt-2 font-roboto text-red-500">Judul tidak bisa kosong</span>}
+        {activeQuestion?.question?.length > 0 ? (
+          <div className="mt-12">
+            <h2 className="mx-auto font-roboto text-sm font-semibold">Pertanyaan</h2>
+            <p className="mt-4 rounded-2xl bg-white py-4 px-4 outline-none">
+              {activeQuestion?.question?.length > 0 ? activeQuestion.question : ""}
+            </p>
           </div>
+        ) : (
+          ""
+        )}
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-12 flex flex-col gap-4">
           <div className="flex flex-col">
             <textarea
               {...register("body", { required: true })}
