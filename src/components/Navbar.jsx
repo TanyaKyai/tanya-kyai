@@ -4,7 +4,6 @@ import { TbBook } from "react-icons/tb";
 import { FiEdit } from "react-icons/fi";
 import { IoNotifications } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-import { book, create, home, notification, profile } from "../assets";
 import { userRole } from "../services/auth";
 
 const userNav = [
@@ -70,7 +69,6 @@ const Navbar = () => {
         <div className="fixed bottom-0 flex w-full  justify-evenly rounded-t-3xl bg-white drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] sm:w-[476px]">
           {userRole() === "admin"
             ? adminNav.map((item, index) => {
-                console.log(item.Img);
                 return (
                   <NavLink
                     to={item.link}
