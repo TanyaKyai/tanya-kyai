@@ -48,14 +48,8 @@ const BahtsulMasail = () => {
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Unggah dokumen</label>
-            <div className="flex h-[100px] w-full items-center justify-center rounded-2xl bg-white">
-              <input
-                {...register("document")}
-                id="fileUpload"
-                type="file"
-                className="flex cursor-pointer"
-                style={{ textAlignLast: "center" }}
-              />
+            <div className="flex w-full items-center justify-start">
+              <input {...register("document")} id="fileUpload" type="file" className="flex cursor-pointer" />
             </div>
           </div>
           <button

@@ -39,6 +39,7 @@ const App = () => {
     <div className="h-full">
       <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
         <Routes>
+          <Route path="/post/:id" element={<PostDetail posts={posts} activeQuestion={activeQuestion} />} />
           <Route element={<PublicRoutes />}>
             <Route index path="/" element={<Splash />} />
             <Route index path="/login" element={<Login />} />
@@ -61,7 +62,6 @@ const App = () => {
                   />
                 }
               />
-              <Route path="/post/:id" element={<PostDetail posts={posts} activeQuestion={activeQuestion} />} />
               <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
               <Route path="/new-fatwa" element={<NewFatwa />} />
               <Route path="/new-question" element={<NewQuestion />} />

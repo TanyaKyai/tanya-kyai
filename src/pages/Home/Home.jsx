@@ -25,10 +25,28 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
 
   return (
     <section className="mx-auto h-screen overflow-hidden px-8 md:w-3/4 lg:w-1/2">
-      <div className="mt-12 flex flex-row justify-between">
+      <div className="mt-12 flex flex-row items-center justify-between">
         <h1 className="font-roboto text-[18px] leading-5 text-[#535353]">
           <span className="font-bold">hi,</span> {name}
         </h1>
+        {active === "Beranda" ? (
+          <div className="flex items-center justify-end gap-4">
+            <div className="h-[16px] w-[16px]">
+              <img src={search} alt="searchbar" className="h-full w-full object-contain" />
+            </div>
+            {userRole() === "admin" ? (
+              <Link to="/new-post">
+                <div className="h-[16px] w-[16px]">
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+                </div>
+              </Link>
+            ) : (
+              ""
+            )}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div className="mt-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
@@ -37,24 +55,6 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
           </Tab>
         ))}
       </div>
-      {active === "Beranda" ? (
-        <div className="mt-4 flex justify-end gap-4">
-          <div className="h-[24px] w-[24px]">
-            <img src={search} alt="searchbar" className="h-full w-full object-contain" />
-          </div>
-          {userRole() === "admin" ? (
-            <Link to="/new-post">
-              <div className="h-[24px] w-[24px]">
-                <img src={plus} alt="add-post" className="h-full w-full object-contain" />
-              </div>
-            </Link>
-          ) : (
-            ""
-          )}
-        </div>
-      ) : (
-        ""
-      )}
       {active === "Beranda" ? (
         <PostList posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />
       ) : (

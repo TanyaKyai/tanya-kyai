@@ -31,7 +31,7 @@ const NewQuestion = () => {
               {errors.question && <span className="mt-2 font-roboto text-red-500">Pertanyaan tidak bisa kosong</span>}
             </div>
             <button
-              className="mx-auto mt-6 rounded-md bg-primary px-8 py-1 font-roboto text-base font-bold text-white"
+              className="mx-auto mt-2 rounded-md bg-primary px-8 py-1 font-roboto text-base font-bold text-white"
               onClick={() => handleSubmit()}
               type="submit"
             >

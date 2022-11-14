@@ -52,7 +52,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
           </div>
           <button
             type="submit"
-            className="mx-auto mt-6 rounded-md bg-[#DBDBDB] px-8 py-1 font-roboto text-base font-bold"
+            className="mx-auto mt-2 rounded-md bg-[#DBDBDB] px-8 py-1 font-roboto text-base font-bold"
           >
             Post
           </button>

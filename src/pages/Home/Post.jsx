@@ -32,15 +32,14 @@ const Post = ({ post, posts, setPosts }) => {
       <Link to={`/post/${id}`} className="cursor-pointer">
         <div className="my-5">
           {question?.length > 0 ? (
-            <div className="mt-7">
-              <h2 className="font-roboto text-sm font-semibold">Pertanyaan</h2>
+            <div className="mt-4">
               <p className="mt-4">{question?.length > 0 ? question : ""}</p>
               <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
             </div>
           ) : (
             ""
           )}
-          <p className={`${question?.length > 0 ? "mt-4" : "mt-7"} whitespace-pre-line font-roboto text-sm`}>
+          <p className={`${question?.length > 0 ? "mt-1" : "mt-4"} whitespace-pre-line font-roboto text-sm`}>
             {body.length <= 500 ? body : `${body.slice(0, 500)}... `}
             <span className="font-bold">{body.length <= 500 ? "" : "See more"}</span>
           </p>
