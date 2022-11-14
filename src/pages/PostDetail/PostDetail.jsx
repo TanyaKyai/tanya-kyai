@@ -5,7 +5,7 @@ import { tripleDots, x, share, love, comment, avatar, leftArrow } from "../../as
 const PostDetail = ({ posts }) => {
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
-  const { title, body } = post;
+  const { question, body } = post || {};
 
   console.log(post);
 
@@ -31,9 +31,11 @@ const PostDetail = ({ posts }) => {
           </div>
         </div>
         {/* Content */}
-        <div className="my-5">
-          <h3 className="font-roboto text-lg">{title}</h3>
-          <p className="mt-7 whitespace-pre-line font-roboto text-sm">{body}</p>
+        <div className="my-5 flex flex-col gap-4">
+          <h2 className="font-roboto text-sm font-semibold">Pertanyaan</h2>
+          <p className="whitespace-pre-line font-roboto text-sm">{question}</p>
+          <h2 className="font-roboto text-sm font-semibold">Jawaban</h2>
+          <p className="whitespace-pre-line font-roboto text-sm">{body}</p>
         </div>
         {/* Footer */}
         <div className="flex items-center justify-between">
