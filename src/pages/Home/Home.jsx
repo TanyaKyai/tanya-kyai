@@ -32,20 +32,12 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
         {active === "Beranda" ? (
           <div className="flex items-center justify-end gap-4">
             <div className="h-[16px] w-[16px]">
-              <img
-                src={search}
-                alt="searchbar"
-                className="h-full w-full object-contain"
-              />
+              <img src={search} alt="searchbar" className="h-full w-full object-contain" />
             </div>
             {userRole() === "admin" ? (
               <Link to="/new-post">
                 <div className="h-[16px] w-[16px]">
-                  <img
-                    src={plus}
-                    alt="add-post"
-                    className="h-full w-full object-contain"
-                  />
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
                 </div>
               </Link>
             ) : (
@@ -53,27 +45,31 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
             )}
           </div>
         ) : (
-          ""
+          <div className="flex items-center justify-end gap-4">
+            <div className="h-[16px] w-[16px]">
+              <img src={search} alt="searchbar" className="h-full w-full object-contain" />
+            </div>
+            {userRole() === "admin" ? (
+              <Link to="/bahtsul-masail">
+                <div className="h-[16px] w-[16px]">
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+                </div>
+              </Link>
+            ) : (
+              ""
+            )}
+          </div>
         )}
       </div>
       <div className="mt-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
-          <Tab
-            key={index}
-            active={active}
-            onClick={handleTabActive}
-            item={item}
-          >
+          <Tab key={index} active={active} onClick={handleTabActive} item={item}>
             {item}
           </Tab>
         ))}
       </div>
       {active === "Beranda" ? (
-        <PostList
-          posts={posts}
-          setPosts={setPosts}
-          activeQuestion={activeQuestion}
-        />
+        <PostList posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />
       ) : (
         <PerpustakaanFatwa fatwas={fatwas} />
       )}
