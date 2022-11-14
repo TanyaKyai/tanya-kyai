@@ -29,23 +29,23 @@ const Post = ({ post, posts, setPosts }) => {
         </div>
       </div>
       {/* Content */}
-      <div className="my-5">
-        {question?.length > 0 ? (
-          <div className="mt-7">
-            <h2 className="font-roboto text-sm font-semibold">Pertanyaan</h2>
-            <p className="mt-4">{question?.length > 0 ? question : ""}</p>
-            <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
-          </div>
-        ) : (
-          ""
-        )}
-        <p className={`${question?.length > 0 ? "mt-4" : "mt-7"} whitespace-pre-line font-roboto text-sm`}>
-          {body.length <= 500 ? body : `${body.slice(0, 500)}... `}
-          <Link to={`/post/${id}`} className="cursor-pointer font-bold">
-            {body.length <= 500 ? "" : "See more"}
-          </Link>
-        </p>
-      </div>
+      <Link to={`/post/${id}`} className="cursor-pointer">
+        <div className="my-5">
+          {question?.length > 0 ? (
+            <div className="mt-7">
+              <h2 className="font-roboto text-sm font-semibold">Pertanyaan</h2>
+              <p className="mt-4">{question?.length > 0 ? question : ""}</p>
+              <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
+            </div>
+          ) : (
+            ""
+          )}
+          <p className={`${question?.length > 0 ? "mt-4" : "mt-7"} whitespace-pre-line font-roboto text-sm`}>
+            {body.length <= 500 ? body : `${body.slice(0, 500)}... `}
+            <span className="font-bold">{body.length <= 500 ? "" : "See more"}</span>
+          </p>
+        </div>
+      </Link>
       {/* Footer */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
