@@ -29,7 +29,7 @@ const Post = ({ post, posts, setPosts }) => {
         </div>
       </div>
       {/* Content */}
-      <Link to={`/post/${id}`} className="cursor-pointer">
+      <Link to={`/post/${id}`} id="Tes" className="cursor-pointer">
         <div className="my-5">
           {question?.length > 0 ? (
             <div className="mt-4">
@@ -57,7 +57,14 @@ const Post = ({ post, posts, setPosts }) => {
         </div>
         <div className="flex items-center">
           <button>
-            <img src={share} alt="share" className="h-[16px] w-[16px]" />
+            <img
+              src={share}
+              alt="share"
+              className="h-[16px] w-[16px]"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.origin + `/post/${id}`);
+              }}
+            />
           </button>
         </div>
       </div>
