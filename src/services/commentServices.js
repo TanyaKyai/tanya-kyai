@@ -9,10 +9,11 @@ export const getComments = async (setComments) => {
   }
 };
 
-export const createComment = async (data, id, comments, setComments) => {
+export const createComment = async (data, id, comments, setComments, name, picture) => {
   try {
-    const newComment = { ...data, postId: id };
+    const newComment = { ...data, postId: id, name, picture };
     const response = await api.post("/comments", newComment);
+    console.log(response.data);
     setComments([...comments, response.data]);
   } catch (error) {
     console.log(error);
