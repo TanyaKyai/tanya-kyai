@@ -14,10 +14,9 @@ import {
   QuestionList,
   Splash,
   PostDetail,
-  NewFatwa,
 } from "./pages";
 import { ProtectedRoutes, PublicRoutes } from "./routes";
-import { getPosts } from "./services/crudServices";
+import { getPosts } from "./services/postServices";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -63,7 +62,6 @@ const App = () => {
                 }
               />
               <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
-              <Route path="/new-fatwa" element={<NewFatwa />} />
               <Route path="/new-question" element={<NewQuestion />} />
               <Route path="/question-list" element={<QuestionList setActiveQuestion={setActiveQuestion} />} />
               <Route path="/notification" element={<Notification />} />

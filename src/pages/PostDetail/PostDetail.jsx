@@ -1,13 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 
 import { tripleDots, x, share, love, comment, avatar, leftArrow } from "../../assets";
+import Comment from "./Comment";
 
 const PostDetail = ({ posts }) => {
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
   const { question, body } = post || {};
-
-  console.log(post);
 
   return (
     <section className="mx-auto px-8 pt-12 md:w-3/4 lg:w-1/2">
@@ -31,11 +30,10 @@ const PostDetail = ({ posts }) => {
           </div>
         </div>
         {/* Content */}
-        <div className="my-5 flex flex-col gap-4">
-          <h2 className="font-roboto text-sm font-semibold">Pertanyaan</h2>
+        <div className="my-5 flex flex-col">
           <p className="whitespace-pre-line font-roboto text-sm">{question}</p>
-          <h2 className="font-roboto text-sm font-semibold">Jawaban</h2>
-          <p className="whitespace-pre-line font-roboto text-sm">{body}</p>
+          <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
+          <p className="mt-1 whitespace-pre-line font-roboto text-sm">{body}</p>
         </div>
         {/* Footer */}
         <div className="flex items-center justify-between">
@@ -54,6 +52,7 @@ const PostDetail = ({ posts }) => {
           </div>
         </div>
       </div>
+      <Comment />
     </section>
   );
 };

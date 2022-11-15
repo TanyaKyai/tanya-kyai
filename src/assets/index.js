@@ -7,7 +7,7 @@ import comment from "./home/comment.svg";
 import love from "./home/love.svg";
 import plus from "./home/plus.svg";
 import search from "./home/search.svg";
-import send from "./home/comment.svg";
+import send from "./home/send.svg";
 import share from "./home/share.svg";
 import tripleDots from "./home/triple-dots.svg";
 import x from "./home/x.svg";

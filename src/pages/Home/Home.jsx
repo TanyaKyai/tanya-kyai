@@ -2,7 +2,7 @@ import { search, plus } from "../../assets";
 import Tab from "./Tab";
 import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
-import { getFatwas } from "../../services/crudServices";
+import { getFatwas } from "../../services/postServices";
 import { userRole } from "../../services/auth";
 
 import { useEffect, useState } from "react";

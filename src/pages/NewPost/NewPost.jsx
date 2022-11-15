@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { leftArrow } from "../../assets";
-import { createPost } from "../../services/crudServices";
+import { createPost } from "../../services/postServices";
 
 const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
   const {

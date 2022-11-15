@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Question from "./Question";
-import { getQuestions } from "../../services/crudServices";
+import { getQuestions } from "../../services/questionServices";
 
 const QuestionList = ({ setActiveQuestion }) => {
   const [questionsList, setQuestionsList] = useState([]);
