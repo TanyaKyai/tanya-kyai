@@ -9,10 +9,13 @@ const Comment = () => {
   const { id } = useParams();
   const { register, handleSubmit, reset } = useForm();
 
+  const user = JSON.parse(localStorage.getItem("userCredential"));
+  const { name, picture } = user;
+
   const [comments, setComments] = useState([]);
 
   const onSubmit = (data) => {
-    createComment(data, id, comments, setComments);
+    createComment(data, id, comments, setComments, name, picture);
     reset();
   };
 
@@ -21,7 +24,7 @@ const Comment = () => {
   }, []);
 
   return (
-    <div className="mt-4 rounded-2xl bg-gray px-5 py-4">
+    <div className="mt-4 rounded-2xl bg-gray px-5 pt-4 pb-1">
       <form onSubmit={handleSubmit(onSubmit)} className="mb-3 flex items-center gap-2">
         <input type="text" {...register("comment")} className="flex-1 rounded-lg py-1 px-2 font-roboto outline-none" />
         <button type="submit" className="mx-auto rounded-md bg-primary py-2 px-2 font-roboto font-bold">
@@ -29,7 +32,7 @@ const Comment = () => {
         </button>
       </form>
       {comments.map((item) => {
-        const { comment, postId } = item;
+        const { comment, postId, name, picture } = item;
         return (
           <>
             {postId === id ? (
@@ -37,9 +40,9 @@ const Comment = () => {
                 key={item.id}
                 className="mt-[6.5px] flex items-center gap-2 border-b-[1px] border-b-[#000]/[0.22] pb-2 last:border-b-0 last:pb-0"
               >
-                <img src="https://via.placeholder.com/150" alt="avatar" className="h-[30px] w-[30px] rounded-[50%]" />
+                <img src={picture} alt="avatar" className="h-[30px] w-[30px] rounded-[50%]" />
                 <div>
-                  <h3 className="font-roboto text-sm font-bold">Nama</h3>
+                  <h3 className="font-roboto text-sm font-bold">{name}</h3>
                   <p className="font-roboto text-sm font-light">{comment}</p>
                 </div>
               </div>
