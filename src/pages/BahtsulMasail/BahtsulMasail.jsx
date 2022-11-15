@@ -17,43 +17,24 @@ const BahtsulMasail = () => {
   };
 
   return (
-    <section className="h-full w-full bg-white pb-14">
+    <section className="h-full w-full bg-white pb-12">
       <div className="mx-auto px-4 md:w-3/4 lg:w-1/2">
         <div className="flex items-center pt-6">
           <Link to="/home">
             <img src={leftArrow} alt="left-arrow" />
           </Link>
-          <h1 className="mx-auto font-roboto text-xl font-bold">
-            Bahtsul Masail
-          </h1>
+          <h1 className="mx-auto font-roboto text-xl font-bold">Bahtsul Masail</h1>
         </div>
-        <form
-          className="mt-12 flex flex-col gap-4 rounded-xl bg-gray px-4 pt-5 pb-5"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form className="mt-12 flex flex-col gap-4 rounded-xl bg-gray px-4 pt-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
             <label className="mb-2">Judul *</label>
-            <input
-              {...register("title", { required: true })}
-              className="rounded-2xl py-2 px-4 outline-none"
-            />
-            {errors.title && (
-              <span className="mt-2 font-roboto text-red-500">
-                Judul tidak bisa kosong
-              </span>
-            )}
+            <input {...register("title", { required: true })} className="rounded-2xl py-2 px-4 outline-none" />
+            {errors.title && <span className="mt-2 font-roboto text-red-500">Judul tidak bisa kosong</span>}
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Tema *</label>
-            <input
-              {...register("topic", { required: true })}
-              className="rounded-2xl py-2 px-4 outline-none"
-            />
-            {errors.topic && (
-              <span className="mt-2 font-roboto text-red-500">
-                Tema tidak bisa kosong
-              </span>
-            )}
+            <input {...register("topic", { required: true })} className="rounded-2xl py-2 px-4 outline-none" />
+            {errors.topic && <span className="mt-2 font-roboto text-red-500">Tema tidak bisa kosong</span>}
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Keterangan (opsional)</label>
@@ -65,12 +46,7 @@ const BahtsulMasail = () => {
           <div className="flex flex-col">
             <label className="mb-2">Unggah dokumen</label>
             <div className="flex w-full items-center justify-start">
-              <input
-                {...register("document")}
-                id="fileUpload"
-                type="file"
-                className="flex cursor-pointer"
-              />
+              <input {...register("document")} id="fileUpload" type="file" className="flex cursor-pointer" />
             </div>
           </div>
           <button
