@@ -23,12 +23,12 @@ const BahtsulMasail = () => {
           <Link to="/home">
             <img src={leftArrow} alt="left-arrow" />
           </Link>
-          <h1 className="mx-auto font-roboto text-base font-bold">
+          <h1 className="mx-auto font-roboto text-xl font-bold">
             Bahtsul Masail
           </h1>
         </div>
         <form
-          className="mt-12 flex flex-col gap-4 rounded-xl bg-gray px-4 pt-9 pb-12"
+          className="mt-12 flex flex-col gap-4 rounded-xl bg-gray px-4 pt-5 pb-5"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col">
@@ -59,7 +59,7 @@ const BahtsulMasail = () => {
             <label className="mb-2">Keterangan (opsional)</label>
             <textarea
               {...register("description", { required: true })}
-              className="h-[200px] rounded-2xl py-2 px-4 outline-none"
+              className="h-[100px] rounded-2xl py-2 px-4 outline-none"
             />
           </div>
           <div className="flex flex-col">

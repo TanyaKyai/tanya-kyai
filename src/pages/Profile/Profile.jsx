@@ -17,7 +17,7 @@ const Profile = () => {
         Profile
       </h1>
       {/* Card */}
-      <div className="mt-6 flex flex-col items-center justify-center gap-3 rounded-3xl bg-gray py-5 shadow-[0_7px_2px_0_rgba(0,0,0,0.1)]">
+      <div className="mt-12 flex flex-col items-center justify-center gap-3 rounded-3xl bg-gray py-5 shadow-[0_7px_2px_0_rgba(0,0,0,0.1)]">
         <img
           src={picture}
           alt="avatar"
