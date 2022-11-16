@@ -6,7 +6,7 @@ import circledCheck from "./home/circled-check.svg";
 import comment from "./home/comment.svg";
 import love from "./home/love.svg";
 import plus from "./home/plus.svg";
-import search from "./home/search.svg";
+import searchImage from "./home/search.svg";
 import send from "./home/send.svg";
 import share from "./home/share.svg";
 import tripleDots from "./home/triple-dots.svg";
@@ -35,7 +35,7 @@ export {
   comment,
   love,
   plus,
-  search,
+  searchImage,
   send,
   share,
   tripleDots,
