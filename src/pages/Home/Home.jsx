@@ -60,7 +60,7 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
         ) : (
           <div className="flex items-center justify-end gap-4">
             <div className="h-[16px] w-[16px]">
-              <img src={search} alt="searchbar" className="h-full w-full object-contain" />
+              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
             {userRole() === "admin" ? (
               <Link to="/bahtsul-masail">
