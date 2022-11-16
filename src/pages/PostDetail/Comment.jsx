@@ -24,9 +24,9 @@ const Comment = () => {
   }, []);
 
   return (
-    <div className="mt-4 rounded-2xl bg-gray px-5 pt-4 pb-1">
-      <form onSubmit={handleSubmit(onSubmit)} className="mb-3 flex items-center gap-2">
-        <input type="text" {...register("comment")} className="flex-1 rounded-lg py-1 px-2 font-roboto outline-none" />
+    <div className="mt-4 rounded-2xl bg-gray px-5 pt-4 pb-0">
+      <form onSubmit={handleSubmit(onSubmit)} className="mb-3 flex items-center gap-2 pb-4">
+        <input type="text" {...register("comment")} className="flex-1 rounded-lg px-2 py-1 font-roboto outline-none" />
         <button type="submit" className="mx-auto rounded-md bg-primary py-2 px-2 font-roboto font-bold">
           <img src={send} alt="send-comment" />
         </button>
@@ -38,7 +38,7 @@ const Comment = () => {
             {postId === id ? (
               <div
                 key={item.id}
-                className="mt-[6.5px] flex items-center gap-2 border-b-[1px] border-b-[#000]/[0.22] pb-2 last:border-b-0 last:pb-0"
+                className="mt-[6.5px] flex items-center gap-2 border-b-[1px] border-b-[#000]/[0.22] pb-2 last:border-b-0"
               >
                 <img src={picture} alt="avatar" className="h-[30px] w-[30px] rounded-[50%]" />
                 <div>

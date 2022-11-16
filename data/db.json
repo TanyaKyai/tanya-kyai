@@ -13,38 +13,48 @@
     {
       "body": "Testes",
       "id": 6
+    },
+    {
+      "body": "Tes",
+      "question": "Tanya lagi",
+      "id": 7
     }
   ],
   "comments": [
     {
-      "comment": "5th post",
-      "postId": "5",
-      "id": 1
-    },
-    {
-      "comment": "5th post second comment",
-      "postId": "5",
-      "id": 2
-    },
-    {
-      "comment": "4th post first comment",
+      "comment": "Tes",
       "postId": "4",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
       "id": 3
     },
     {
-      "comment": "4th post second comment",
-      "postId": "4",
+      "comment": "Tes",
+      "postId": "6",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
       "id": 4
     },
     {
-      "comment": "Comment aja biar ga kosong",
+      "comment": "Tes",
       "postId": "6",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
       "id": 5
     },
     {
-      "comment": "ggdfhdfhdh",
-      "postId": "4",
+      "comment": "Tes",
+      "postId": "7",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
       "id": 6
+    },
+    {
+      "comment": "Tesssss",
+      "postId": "7",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
+      "id": 7
     }
   ],
   "fatwas": [
@@ -58,24 +68,33 @@
   "questions": [
     {
       "id": 1,
+      "datetime": "13 Nov 2022 5:28 PM",
       "question": "Apa doa agar cepat kaya raya?"
     },
     {
       "question": "apa hukumnya jika sholat tanpa mandi besar karena tidak ada air?",
+      "datetime": "13 Nov 2022 5:48 PM",
       "id": 2
     },
     {
       "question": "bagaimana caranya untuk mengqodho sholat?",
+      "datetime": "14 Nov 2022 7:28 PM",
       "id": 3
     },
     {
       "question": "Lebih baik ditinggal, kalau pasangan kita sudah menunjukkan tanda-tanda sifat dan karakter kasar, lebih baik dibatalkan persiapan pernikahannya. Sikap kasar adalah salah satu tanda dari benih domestic violance atau yang kerap disebut KDRT (Kekerasan Dalam Rumah Tangga).\n\nDiambil dari Displacement theory, dimana teori ini menjelaskan jenis defense mechanism yang menggambarkan pelampiasan amarah terhadap suatu benda atau terhadap orang lain.\n\nDi awal hubungan mungkin sudah terlihat tanda-tanda kekasaran seperti marah-marah yang akhirnya menonjo tembok atau banting stir mobil. Pendapatnya dong bagaimana yaaa? ",
+      "datetime": "14 Nov 2022 8:28 PM",
       "id": 4
     },
     {
       "question": "tes",
-      "newDate": "15 Nov 2022 7:28 PM",
+      "datetime": "15 Nov 2022 7:28 PM",
       "id": 5
+    },
+    {
+      "question": "Tanya lagi",
+      "datetime": "15 Nov 2022 7:31 PM",
+      "id": 6
     }
   ]
 }
