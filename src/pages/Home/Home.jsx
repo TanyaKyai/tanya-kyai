@@ -1,4 +1,4 @@
-import { search, plus } from "../../assets";
+import { searchImage, plus } from "../../assets";
 import Tab from "./Tab";
 import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 const Home = ({ activeQuestion, posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
   const [fatwas, setFatwas] = useState([]);
+  const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const user = JSON.parse(localStorage.getItem("userCredential"));
   const { name } = user;
@@ -30,9 +32,20 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
           <span className="font-bold">hi,</span> {name}
         </h1>
         {active === "Beranda" ? (
-          <div className="flex items-center justify-end gap-4">
+          <div className="flex flex-[0.5] items-center gap-4">
+            <form onSubmit={(e) => e.preventDefault()} className="flex-1">
+              <input
+                type="text"
+                className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  console.log(search);
+                }}
+              />
+            </form>
             <div className="h-[16px] w-[16px]">
-              <img src={search} alt="searchbar" className="h-full w-full object-contain" />
+              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
             {userRole() === "admin" ? (
               <Link to="/new-post">
