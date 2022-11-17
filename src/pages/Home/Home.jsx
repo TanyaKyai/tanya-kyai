@@ -11,8 +11,10 @@ import { Link } from "react-router-dom";
 const Home = ({ activeQuestion, posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
   const [fatwas, setFatwas] = useState([]);
-  const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchPost, setSearchPost] = useState("");
+  const [searchResultsPost, setSearchResultsPost] = useState([]);
+  const [searchFatwa, setSearchFatwa] = useState("");
+  const [searchResultsFatwa, setSearchResultsFatwa] = useState([]);
 
   const user = JSON.parse(localStorage.getItem("userCredential"));
   const { name } = user;
@@ -28,12 +30,24 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
   useEffect(() => {
     const filteredResults = posts.filter((post) => {
       return (
-        post.body?.toLowerCase().includes(search.toLowerCase()) ||
-        post.question?.toLowerCase().includes(search.toLowerCase())
+        post.body?.toLowerCase().includes(searchPost.toLowerCase()) ||
+        post.question?.toLowerCase().includes(searchPost.toLowerCase())
       );
     });
-    setSearchResults(filteredResults);
-  }, [search, posts]);
+
+    setSearchResultsPost(filteredResults);
+  }, [searchPost, posts]);
+
+  useEffect(() => {
+    const filteredResultsFatwa = fatwas.filter((fatwa) => {
+      return (
+        fatwa.title?.toLowerCase().includes(searchFatwa.toLowerCase()) ||
+        fatwa.topic?.toLowerCase().includes(searchFatwa.toLowerCase())
+      );
+    });
+
+    setSearchResultsFatwa(filteredResultsFatwa);
+  }, [searchFatwa, fatwas]);
 
   return (
     <section className="mx-auto h-screen overflow-hidden px-4 md:w-3/4 lg:w-1/2">
@@ -47,19 +61,27 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
               <input
                 type="text"
                 className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
-                value={search}
+                value={searchPost}
                 onChange={(e) => {
-                  setSearch(e.target.value);
+                  setSearchPost(e.target.value);
                 }}
               />
             </form>
             <div className="h-[16px] w-[16px]">
-              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
+              <img
+                src={searchImage}
+                alt="searchbar"
+                className="h-full w-full object-contain"
+              />
             </div>
             {userRole() === "admin" ? (
               <Link to="/new-post">
                 <div className="h-[16px] w-[16px]">
-                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+                  <img
+                    src={plus}
+                    alt="add-post"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
               </Link>
             ) : (
@@ -67,14 +89,32 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
             )}
           </div>
         ) : (
-          <div className="flex items-center justify-end gap-4">
+          <div className="ml-4 flex flex-1 items-center gap-4 md:flex-[0.5]">
+            <form onSubmit={(e) => e.preventDefault()} className="flex-1">
+              <input
+                type="text"
+                className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
+                value={searchFatwa}
+                onChange={(e) => {
+                  setSearchFatwa(e.target.value);
+                }}
+              />
+            </form>
             <div className="h-[16px] w-[16px]">
-              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
+              <img
+                src={searchImage}
+                alt="searchbar"
+                className="h-full w-full object-contain"
+              />
             </div>
             {userRole() === "admin" ? (
               <Link to="/bahtsul-masail">
                 <div className="h-[16px] w-[16px]">
-                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+                  <img
+                    src={plus}
+                    alt="add-post"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
               </Link>
             ) : (
@@ -85,15 +125,24 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
       </div>
       <div className="mt-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
-          <Tab key={index} active={active} onClick={handleTabActive} item={item}>
+          <Tab
+            key={index}
+            active={active}
+            onClick={handleTabActive}
+            item={item}
+          >
             {item}
           </Tab>
         ))}
       </div>
       {active === "Beranda" ? (
-        <PostList posts={searchResults} setPosts={setPosts} activeQuestion={activeQuestion} />
+        <PostList
+          posts={searchResultsPost}
+          setPosts={setPosts}
+          activeQuestion={activeQuestion}
+        />
       ) : (
-        <PerpustakaanFatwa fatwas={fatwas} />
+        <PerpustakaanFatwa fatwas={searchResultsFatwa} />
       )}
     </section>
   );

@@ -11,10 +11,6 @@
       "id": 5
     },
     {
-      "body": "Testes",
-      "id": 6
-    },
-    {
       "body": "Tes",
       "question": "Tanya lagi",
       "id": 7
@@ -30,20 +26,6 @@
     },
     {
       "comment": "Tes",
-      "postId": "6",
-      "name": "tanya kyai",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
-      "id": 4
-    },
-    {
-      "comment": "Tes",
-      "postId": "6",
-      "name": "tanya kyai",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
-      "id": 5
-    },
-    {
-      "comment": "Tes",
       "postId": "7",
       "name": "tanya kyai",
       "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
@@ -55,6 +37,62 @@
       "name": "tanya kyai",
       "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
       "id": 7
+    },
+    {
+      "comment": "haloo",
+      "postId": "5",
+      "name": "Achmad Fadli",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
+      "id": 8
+    },
+    {
+      "comment": "hai min",
+      "postId": "7",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
+      "id": 9
+    },
+    {
+      "comment": "hai admin",
+      "postId": "6",
+      "name": "Achmad Fadli",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
+      "id": 10
+    },
+    {
+      "comment": "apa kabar",
+      "postId": "6",
+      "name": "Achmad Fadli",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
+      "id": 11
+    },
+    {
+      "comment": "hai min",
+      "postId": "7",
+      "name": "Achmad Fadli",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
+      "id": 12
+    },
+    {
+      "comment": "iyaa",
+      "postId": "7",
+      "name": "Achmad Fadli",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
+      "id": 13
+    },
+    {
+      "comment": "dari mana ",
+      "postId": "7",
+      "name": "Achmad Fadli",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
+      "id": 14
+    },
+    {
+      "comment": "ada pengajian lagi di mana min",
+      "postId": "7",
+      "name": "Achmad Fadli",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
+      "id": 15
     }
   ],
   "fatwas": [
