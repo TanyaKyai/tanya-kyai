@@ -12,12 +12,6 @@ import share from "./home/share.svg";
 import tripleDots from "./home/triple-dots.svg";
 import x from "./home/x.svg";
 
-import book from "./navbar/book.svg";
-import create from "./navbar/create.svg";
-import home from "./navbar/home.svg";
-import notification from "./navbar/notification.svg";
-import profile from "./navbar/profile.svg";
-
 import logoWhite from "./splash/logo-white.svg";
 import tripleDiamonds from "./splash/triple-diamonds.svg";
 import fontLogoWhite from "./splash/font-logo-white.svg";
@@ -40,11 +34,6 @@ export {
   share,
   tripleDots,
   x,
-  book,
-  create,
-  home,
-  notification,
-  profile,
   logoWhite,
   tripleDiamonds,
   fontLogoWhite,
