@@ -8,16 +8,10 @@ const PostList = ({ activeQuestion, posts, setPosts }) => {
           ?.slice(0)
           .reverse()
           .map((post) => (
-            <Post
-              key={post.id}
-              post={post}
-              posts={posts}
-              setPosts={setPosts}
-              activeQuestion={activeQuestion}
-            />
+            <Post key={post.id} post={post} posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />
           ))
       ) : (
-        <p>Belum ada kiriman untuk ditampilkan</p>
+        <p>Tidak ada kiriman untuk ditampilkan</p>
       )}
     </div>
   );

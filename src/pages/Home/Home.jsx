@@ -25,6 +25,16 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
     getFatwas(setFatwas);
   }, []);
 
+  useEffect(() => {
+    const filteredResults = posts.filter((post) => {
+      return (
+        post.body?.toLowerCase().includes(search.toLowerCase()) ||
+        post.question?.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+    setSearchResults(filteredResults);
+  }, [search, posts]);
+
   return (
     <section className="mx-auto h-screen overflow-hidden px-4 md:w-3/4 lg:w-1/2">
       <div className="mt-6 flex flex-row items-center justify-between">
@@ -32,7 +42,7 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
           <span className="font-bold">hi,</span> {name}
         </h1>
         {active === "Beranda" ? (
-          <div className="flex flex-[0.5] items-center gap-4">
+          <div className="ml-4 flex flex-1 items-center gap-4 md:flex-[0.5]">
             <form onSubmit={(e) => e.preventDefault()} className="flex-1">
               <input
                 type="text"
@@ -40,7 +50,6 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
-                  console.log(search);
                 }}
               />
             </form>
@@ -82,7 +91,7 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
         ))}
       </div>
       {active === "Beranda" ? (
-        <PostList posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />
+        <PostList posts={searchResults} setPosts={setPosts} activeQuestion={activeQuestion} />
       ) : (
         <PerpustakaanFatwa fatwas={fatwas} />
       )}
