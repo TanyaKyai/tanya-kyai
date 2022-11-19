@@ -9,7 +9,7 @@ const PostDetail = ({ posts }) => {
   const { question, body } = post || {};
 
   return (
-    <section className="mx-auto px-8 pt-6 md:w-3/4 lg:w-1/2">
+    <section className="mx-auto px-8 pb-12 pt-6 md:w-3/4 lg:w-1/2">
       <Link to="/home" className="inline-block">
         <img src={leftArrow} alt="left-arrow" />
       </Link>
