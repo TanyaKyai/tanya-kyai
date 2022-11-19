@@ -11,10 +11,8 @@ import { Link } from "react-router-dom";
 const Home = ({ activeQuestion, posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
   const [fatwas, setFatwas] = useState([]);
-  const [searchPost, setSearchPost] = useState("");
-  const [searchResultsPost, setSearchResultsPost] = useState([]);
-  const [searchFatwa, setSearchFatwa] = useState("");
-  const [searchResultsFatwa, setSearchResultsFatwa] = useState([]);
+  const [searchResults, setSearchResults] = useState({ post: [], fatwa: [] });
+  const [search, setSearch] = useState({ post: "", fatwa: "" });
 
   const user = JSON.parse(localStorage.getItem("userCredential"));
   const { name } = user;
@@ -30,24 +28,24 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
   useEffect(() => {
     const filteredResults = posts.filter((post) => {
       return (
-        post.body?.toLowerCase().includes(searchPost.toLowerCase()) ||
-        post.question?.toLowerCase().includes(searchPost.toLowerCase())
+        post.body?.toLowerCase().includes(search.post.toLowerCase()) ||
+        post.question?.toLowerCase().includes(search.post.toLowerCase())
       );
     });
 
-    setSearchResultsPost(filteredResults);
-  }, [searchPost, posts]);
+    setSearchResults((prevState) => ({ ...prevState, post: filteredResults }));
+  }, [search.post, posts]);
 
   useEffect(() => {
-    const filteredResultsFatwa = fatwas.filter((fatwa) => {
+    const filteredResults = fatwas.filter((fatwa) => {
       return (
-        fatwa.title?.toLowerCase().includes(searchFatwa.toLowerCase()) ||
-        fatwa.topic?.toLowerCase().includes(searchFatwa.toLowerCase())
+        fatwa.title?.toLowerCase().includes(search.fatwa.toLowerCase()) ||
+        fatwa.topic?.toLowerCase().includes(search.fatwa.toLowerCase())
       );
     });
 
-    setSearchResultsFatwa(filteredResultsFatwa);
-  }, [searchFatwa, fatwas]);
+    setSearchResults((prevState) => ({ ...prevState, fatwa: filteredResults }));
+  }, [search.fatwa, fatwas]);
 
   return (
     <section className="mx-auto h-screen overflow-hidden px-4 md:w-3/4 lg:w-1/2">
@@ -61,27 +59,17 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
               <input
                 type="text"
                 className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
-                value={searchPost}
-                onChange={(e) => {
-                  setSearchPost(e.target.value);
-                }}
+                value={search.post}
+                onChange={(e) => setSearch((prevState) => ({ ...prevState, post: e.target.value }))}
               />
             </form>
             <div className="h-[16px] w-[16px]">
-              <img
-                src={searchImage}
-                alt="searchbar"
-                className="h-full w-full object-contain"
-              />
+              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
             {userRole() === "admin" ? (
               <Link to="/new-post">
                 <div className="h-[16px] w-[16px]">
-                  <img
-                    src={plus}
-                    alt="add-post"
-                    className="h-full w-full object-contain"
-                  />
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
                 </div>
               </Link>
             ) : (
@@ -94,27 +82,19 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
               <input
                 type="text"
                 className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
-                value={searchFatwa}
+                value={search.fatwa}
                 onChange={(e) => {
-                  setSearchFatwa(e.target.value);
+                  setSearch((prevState) => ({ ...prevState, fatwa: e.target.value }));
                 }}
               />
             </form>
             <div className="h-[16px] w-[16px]">
-              <img
-                src={searchImage}
-                alt="searchbar"
-                className="h-full w-full object-contain"
-              />
+              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
             {userRole() === "admin" ? (
               <Link to="/bahtsul-masail">
                 <div className="h-[16px] w-[16px]">
-                  <img
-                    src={plus}
-                    alt="add-post"
-                    className="h-full w-full object-contain"
-                  />
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
                 </div>
               </Link>
             ) : (
@@ -125,24 +105,15 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
       </div>
       <div className="mt-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
-          <Tab
-            key={index}
-            active={active}
-            onClick={handleTabActive}
-            item={item}
-          >
+          <Tab key={index} active={active} onClick={handleTabActive} item={item}>
             {item}
           </Tab>
         ))}
       </div>
       {active === "Beranda" ? (
-        <PostList
-          posts={searchResultsPost}
-          setPosts={setPosts}
-          activeQuestion={activeQuestion}
-        />
+        <PostList posts={searchResults.post} setPosts={setPosts} activeQuestion={activeQuestion} />
       ) : (
-        <PerpustakaanFatwa fatwas={searchResultsFatwa} />
+        <PerpustakaanFatwa fatwas={searchResults.fatwa} />
       )}
     </section>
   );
