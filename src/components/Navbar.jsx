@@ -13,11 +13,6 @@ const userNav = [
     Img: <RiHome7Fill size={20} />,
   },
   {
-    link: "/bahtsul-masail",
-    name: "Bahtsul Masail",
-    Img: <TbBook size={20} />,
-  },
-  {
     link: "/new-question",
     name: "Tanya Kyai",
     Img: <FiEdit size={20} />,
