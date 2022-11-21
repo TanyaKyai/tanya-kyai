@@ -10,7 +10,7 @@ const Comment = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const user = JSON.parse(localStorage.getItem("userCredential"));
-  const { name, picture } = user;
+  const { name, picture } = user || {};
 
   const [comments, setComments] = useState([]);
 
