@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { getComments, createComment } from "../../services/commentServices";
-import { send } from "../../assets";
+import { send, x } from "../../assets";
+import { userRole } from "../../services/auth";
 
 const Comment = () => {
   const { id } = useParams();
@@ -42,12 +43,21 @@ const Comment = () => {
         return (
           <React.Fragment key={item.id}>
             {postId === id ? (
-              <div className="mt-[6.5px] flex items-center gap-2 border-b-[1px] border-b-[#000]/[0.22] pb-2 last:border-b-0">
-                <img src={picture} alt="avatar" className="h-[30px] w-[30px] rounded-[50%]" />
-                <div>
-                  <h3 className="font-roboto text-sm font-bold">{name}</h3>
-                  <p className="font-roboto text-sm font-light">{comment}</p>
+              <div className="mt-[6.5px] flex items-start justify-between border-b-[1px] border-b-[#000]/[0.22] pb-2 last:border-b-0">
+                <div className="flex items-center gap-2">
+                  <img src={picture} alt="avatar" className="h-[30px] w-[30px] rounded-[50%]" />
+                  <div>
+                    <h3 className="font-roboto text-sm font-bold">{name}</h3>
+                    <p className="font-roboto text-sm font-light">{comment}</p>
+                  </div>
                 </div>
+                {userRole() === "admin" ? (
+                  <button onClick={""}>
+                    <img src={x} alt="close" className="h-[16px] w-[16px]" />
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             ) : (
               ""

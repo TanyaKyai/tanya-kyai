@@ -1,10 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
 import { tripleDots, x, share, love, comment, avatar, leftArrow } from "../../assets";
 import Comment from "./Comment";
+import { deletePost } from "../../services/postServices";
+import { userRole } from "../../services/auth";
 
-const PostDetail = ({ posts }) => {
+const PostDetail = ({ posts, setPosts }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const post = posts.find((post) => post.id.toString() === id);
   const { question, body } = post || {};
 
@@ -24,9 +28,13 @@ const PostDetail = ({ posts }) => {
             <button>
               <img src={tripleDots} alt="triple-dots" className="h-[20px] w-[20px]" />
             </button>
-            <button>
-              <img src={x} alt="close" className="h-[16px] w-[16px]" />
-            </button>
+            {userRole() === "admin" ? (
+              <button onClick={() => deletePost(id, posts, setPosts, navigate)}>
+                <img src={x} alt="close" className="h-[16px] w-[16px]" />
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         {/* Content */}
