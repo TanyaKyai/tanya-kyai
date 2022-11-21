@@ -21,7 +21,6 @@ export const getFatwas = async (setFatwas) => {
 export const createPost = async (data, posts, setPosts, question) => {
   try {
     const newPost = { ...data, question };
-    console.log(newPost);
     const response = await api.post("/posts", newPost);
     setPosts([...posts, response.data]);
   } catch (error) {
@@ -29,10 +28,10 @@ export const createPost = async (data, posts, setPosts, question) => {
   }
 };
 
-export const deletePost = async (id, posts, setPosts) => {
+export const deletePost = async (id, setPosts, navigate) => {
   try {
     await api.delete(`/posts/${id}`);
-    const postList = posts.filter((post) => post.id !== id);
-    setPosts(postList);
+    getPosts(setPosts);
+    navigate("/home");
   } catch (error) {}
 };
