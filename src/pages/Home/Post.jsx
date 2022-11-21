@@ -20,7 +20,7 @@ const Post = ({ post, posts, setPosts }) => {
             <img src={tripleDots} alt="triple-dots" className="h-[20px] w-[20px]" />
           </button>
           {userRole() === "admin" ? (
-            <button onClick={() => deletePost(id, posts, setPosts)}>
+            <button onClick={() => deletePost(id, setPosts)}>
               <img src={x} alt="close" className="h-[16px] w-[16px]" />
             </button>
           ) : (
@@ -51,9 +51,9 @@ const Post = ({ post, posts, setPosts }) => {
           <button>
             <img src={love} alt="like" className="h-[20px] w-[20px]" />
           </button>
-          <button>
+          <Link to={`/post/${id}`} id="Tes" className="cursor-pointer">
             <img src={comment} alt="comment" className="h-[16px] w-[16px]" />
-          </button>
+          </Link>
         </div>
         <div className="flex items-center">
           <button>

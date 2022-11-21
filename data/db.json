@@ -1,104 +1,11 @@
 {
   "posts": [
     {
-      "body": "Tayamum Gan",
-      "question": "apa hukumnya jika sholat tanpa mandi besar karena tidak ada air?",
-      "id": 4
-    },
-    {
-      "body": "Semangat Le",
-      "question": "Apa doa agar cepat kaya raya?",
-      "id": 5
-    },
-    {
-      "body": "Tes",
-      "question": "Tanya lagi",
-      "id": 7
-    },
-    {
-      "body": "New post test",
-      "id": 8
+      "body": "Tessss",
+      "id": 1
     }
   ],
-  "comments": [
-    {
-      "comment": "Tes",
-      "postId": "4",
-      "name": "tanya kyai",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
-      "id": 3
-    },
-    {
-      "comment": "Tes",
-      "postId": "7",
-      "name": "tanya kyai",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
-      "id": 6
-    },
-    {
-      "comment": "Tesssss",
-      "postId": "7",
-      "name": "tanya kyai",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
-      "id": 7
-    },
-    {
-      "comment": "haloo",
-      "postId": "5",
-      "name": "Achmad Fadli",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
-      "id": 8
-    },
-    {
-      "comment": "hai min",
-      "postId": "7",
-      "name": "tanya kyai",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
-      "id": 9
-    },
-    {
-      "comment": "hai admin",
-      "postId": "6",
-      "name": "Achmad Fadli",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
-      "id": 10
-    },
-    {
-      "comment": "apa kabar",
-      "postId": "6",
-      "name": "Achmad Fadli",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
-      "id": 11
-    },
-    {
-      "comment": "hai min",
-      "postId": "7",
-      "name": "Achmad Fadli",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
-      "id": 12
-    },
-    {
-      "comment": "iyaa",
-      "postId": "7",
-      "name": "Achmad Fadli",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
-      "id": 13
-    },
-    {
-      "comment": "dari mana ",
-      "postId": "7",
-      "name": "Achmad Fadli",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
-      "id": 14
-    },
-    {
-      "comment": "ada pengajian lagi di mana min",
-      "postId": "7",
-      "name": "Achmad Fadli",
-      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0wLGKwfhSIFKuJBwZlgOPJD-_saqWc_eylmLOQ=s96-c",
-      "id": 15
-    }
-  ],
+  "comments": [],
   "fatwas": [
     {
       "id": 1,

@@ -29,7 +29,7 @@ const PostDetail = ({ posts, setPosts }) => {
               <img src={tripleDots} alt="triple-dots" className="h-[20px] w-[20px]" />
             </button>
             {userRole() === "admin" ? (
-              <button onClick={() => deletePost(id, posts, setPosts, navigate)}>
+              <button onClick={() => deletePost(id, setPosts, navigate)}>
                 <img src={x} alt="close" className="h-[16px] w-[16px]" />
               </button>
             ) : (
