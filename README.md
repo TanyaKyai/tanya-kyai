@@ -21,4 +21,4 @@ npm run dev -- --host
 - Damar Buana Murti
 - Achmad Fadli
 # Status
-Aplikasi ini masih dalam tahap pengembangan, untuk melihat progress dapat menuju ke *branch* [dev](../dev)
+Aplikasi ini masih dalam tahap pengembangan, untuk melihat progress dapat menuju ke *branch* [dev](../../dev)
