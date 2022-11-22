@@ -8,6 +8,10 @@ Untuk dapat menjalankan aplikasi, lakukan perintah di bawah ini agar dependencie
 `npm install@latest`
 # Run
 Ketik perintah di bawah untuk menjalankan aplikasi secara lokal
-`npm run dev`
+```
+npm run dev
+```
 atau apabila ingin dijalankan secara publik dapat melakukan
-`npm run dev -- --host
+```
+npm run dev -- --host
+```
