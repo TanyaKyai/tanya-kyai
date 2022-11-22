@@ -17,3 +17,6 @@ atau apabila ingin dijalankan secara publik dapat melakukan
 ```
 npm run dev -- --host
 ```
+# Author
+- Damar Buana Murti
+- Achmad Fadli
