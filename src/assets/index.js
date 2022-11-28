@@ -15,9 +15,11 @@ import x from "./home/x.svg";
 import logoWhite from "./splash/logo-white.svg";
 import tripleDiamonds from "./splash/triple-diamonds.svg";
 import fontLogoWhite from "./splash/font-logo-white.svg";
+import logoPutih from "./splash/logo-putih.svg";
 
 import bookGreen from "./login/book-green.svg";
 import logoGreen from "./login/logo-green.svg";
+import logoHijau from "./login/logo-hijau.svg";
 
 import leftArrow from "./left-arrow.svg";
 
@@ -37,7 +39,9 @@ export {
   logoWhite,
   tripleDiamonds,
   fontLogoWhite,
+  logoPutih,
   bookGreen,
   logoGreen,
+  logoHijau,
   leftArrow,
 };
