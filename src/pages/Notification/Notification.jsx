@@ -1,7 +1,9 @@
 const Notification = () => {
   return (
-    <section className="flex h-screen w-full items-center justify-center">
-      <h1 className="font-roboto text-5xl font-bold uppercase text-primary">Coming Soon</h1>
+    <section className="mx-auto w-full px-4 md:w-1/2">
+      <h1 className="pt-6 text-center font-roboto text-xl font-bold ">
+        Pemberitahuan
+      </h1>
     </section>
   );
 };
