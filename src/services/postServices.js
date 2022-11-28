@@ -2,13 +2,7 @@ import api from "./baseUrl";
 
 export const getPosts = async (setPosts) => {
   try {
-    const response = await api.get("/posts", {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        // "Access-Control-Allow-Credentials": "*",
-        // "Access-Control-Allow-Headers": "Content-Type",
-      },
-    });
+    const response = await api.get("/posts");
     setPosts(response.data.data);
     console.log(response.data);
   } catch (error) {
