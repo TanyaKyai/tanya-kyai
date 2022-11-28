@@ -11,6 +11,7 @@ const Login = () => {
   const handleLogin = useGoogleLogin({
     onSuccess: (response) => {
       userLogin(response, navigate);
+      console.log(response);
     },
   });
 

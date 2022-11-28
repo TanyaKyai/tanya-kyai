@@ -27,10 +27,8 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
 
   useEffect(() => {
     const filteredResults = posts.filter((post) => {
-      return (
-        post.body?.toLowerCase().includes(search.post.toLowerCase()) ||
-        post.question?.toLowerCase().includes(search.post.toLowerCase())
-      );
+      return post.isi?.toLowerCase().includes(search.post.toLowerCase());
+      // post.question?.toLowerCase().includes(search.post.toLowerCase())
     });
 
     setSearchResults((prevState) => ({ ...prevState, post: filteredResults }));

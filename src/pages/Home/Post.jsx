@@ -4,8 +4,10 @@ import { tripleDots, x, share, love, comment, avatar } from "../../assets";
 import { userRole } from "../../services/auth";
 import { deletePost } from "../../services/postServices";
 
-const Post = ({ post, posts, setPosts }) => {
-  const { id, question, body } = post;
+const Post = ({ post, setPosts }) => {
+  const { id, question, isi } = post;
+
+  console.log("Post:", post);
 
   return (
     <div className="rounded-2xl bg-gray px-5 py-4">
@@ -40,8 +42,8 @@ const Post = ({ post, posts, setPosts }) => {
             ""
           )}
           <p className={`${question?.length > 0 ? "mt-1" : "mt-4"} whitespace-pre-line font-roboto text-sm`}>
-            {body.length <= 500 ? body : `${body.slice(0, 500)}... `}
-            <span className="font-bold">{body.length <= 500 ? "" : "See more"}</span>
+            {isi.length <= 500 ? isi : `${isi.slice(0, 500)}... `}
+            <span className="font-bold">{isi.length <= 500 ? "" : "See more"}</span>
           </p>
         </div>
       </Link>

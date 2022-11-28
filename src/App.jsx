@@ -22,6 +22,8 @@ const App = () => {
   const [posts, setPosts] = useState([]);
   const [activeQuestion, setActiveQuestion] = useState(null);
 
+  console.log("App: ", posts);
+
   const location = useLocation();
 
   useEffect(() => {
