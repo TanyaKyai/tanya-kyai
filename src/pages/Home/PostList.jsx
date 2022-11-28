@@ -7,9 +7,7 @@ const PostList = ({ activeQuestion, posts, setPosts }) => {
         posts
           ?.slice(0)
           .reverse()
-          .map((post) => (
-            <Post key={post.id} post={post} posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />
-          ))
+          .map((post) => <Post key={post.id} post={post} setPosts={setPosts} activeQuestion={activeQuestion} />)
       ) : (
         <p>Tidak ada kiriman untuk ditampilkan</p>
       )}

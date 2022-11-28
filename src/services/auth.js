@@ -8,6 +8,8 @@ export const userLogin = async (response, navigate) => {
       },
     });
 
+    console.log(result);
+
     const userRole = result.data.email === "tanya.kyai.demo@gmail.com" ? "admin" : "user";
     const userCredential = { ...result.data, userRole: userRole };
     navigate("/home");

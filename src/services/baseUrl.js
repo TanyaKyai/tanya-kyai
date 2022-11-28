@@ -1,3 +1,3 @@
 import axios from "axios";
 
-export default axios.create({ baseURL: "http://localhost:3500" });
+export default axios.create({ baseURL: "https://few-rocks-beam-182-2-39-138.loca.lt/" });
