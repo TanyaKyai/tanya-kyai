@@ -10,12 +10,16 @@ const QuestionList = ({ setActiveQuestion }) => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center pb-12">
+    <section className="flex flex-col items-center justify-center pb-16">
       <h1 className="pt-6 font-roboto text-xl font-bold">Daftar Pertanyaan</h1>
-      <div className="mt-12">
+      <div className="mt-12 px-2">
         {questionsList.length
           ? questionsList.map((question) => (
-              <Question key={question.id} questionItem={question} setActiveQuestion={setActiveQuestion} />
+              <Question
+                key={question.id}
+                questionItem={question}
+                setActiveQuestion={setActiveQuestion}
+              />
             ))
           : "Belum ada pertanyaan"}
       </div>
