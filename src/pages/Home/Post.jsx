@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { tripleDots, x, share, love, comment, avatar } from "../../assets";
 import { userRole } from "../../services/auth";
@@ -65,8 +67,16 @@ const Post = ({ post, setPosts }) => {
               className="h-[16px] w-[16px]"
               onClick={() => {
                 navigator.clipboard.writeText(window.location.origin + `/post/${id}`);
+                toast("Tautan disalin", {
+                  autoClose: 750,
+                  position: toast.POSITION.BOTTOM_CENTER,
+                  className: "mb-20 flex mx-auto w-1/2",
+                  hideProgressBar: true,
+                  pauseOnHover: false,
+                });
               }}
             />
+            <ToastContainer transition={Zoom} />
           </button>
         </div>
       </div>

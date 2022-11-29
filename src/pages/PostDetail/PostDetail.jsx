@@ -1,4 +1,6 @@
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 
 import { tripleDots, x, share, love, comment, avatar, leftArrow } from "../../assets";
 import Comment from "./Comment";
@@ -10,7 +12,7 @@ const PostDetail = ({ posts, setPosts }) => {
   const navigate = useNavigate();
 
   const post = posts.find((post) => post.id.toString() === id);
-  const { question, body } = post || {};
+  const { question, isi } = post || {};
 
   return (
     <section className="mx-auto px-8 pb-12 pt-6 md:w-3/4 lg:w-1/2">
@@ -40,8 +42,8 @@ const PostDetail = ({ posts, setPosts }) => {
         {/* Content */}
         <div className="my-5 flex flex-col">
           <p className="whitespace-pre-line font-roboto text-sm">{question}</p>
-          <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
-          <p className="mt-1 whitespace-pre-line font-roboto text-sm">{body}</p>
+          {question ? <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2> : ""}
+          <p className="mt-1 whitespace-pre-line font-roboto text-sm">{isi}</p>
         </div>
         {/* Footer */}
         <div className="flex items-center justify-between">
@@ -60,9 +62,17 @@ const PostDetail = ({ posts, setPosts }) => {
                 alt="share"
                 className="h-[16px] w-[16px]"
                 onClick={() => {
-                  navigator.clipboard.writeText(window.location.href);
+                  navigator.clipboard.writeText(window.location.origin + `/post/${id}`);
+                  toast("Tautan disalin", {
+                    autoClose: 750,
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: "mb-20 flex mx-auto w-1/2",
+                    hideProgressBar: true,
+                    pauseOnHover: false,
+                  });
                 }}
               />
+              <ToastContainer transition={Zoom} />
             </button>
           </div>
         </div>

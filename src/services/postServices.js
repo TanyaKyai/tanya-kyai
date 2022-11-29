@@ -3,7 +3,7 @@ import api from "./baseUrl";
 export const getPosts = async (setPosts) => {
   try {
     const response = await api.get("/posts");
-    setPosts(response.data.data);
+    setPosts(response.data);
     console.log(response.data);
   } catch (error) {
     console.log(error);
