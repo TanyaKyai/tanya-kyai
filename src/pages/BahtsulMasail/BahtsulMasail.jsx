@@ -1,22 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
-import { leftArrow } from "../../assets";
+import { imgPlaceholder, leftArrow } from "../../assets";
 
 const BahtsulMasail = () => {
   const {
     register,
     handleSubmit,
+    resetField,
     formState: { errors },
-    reset,
+    watch,
   } = useForm();
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    reset();
+    navigate("/home");
+    console.log(data);
   };
 
+  useEffect(() => {
+    const fileSize = watch(["fileUpload"]);
+    if (!watch("fileUpload") || watch("fileUpload").length !== 0) {
+      if (fileSize[0][0].size > 2048000) {
+        alert("File terlalu besar");
+        resetField("fileUpload");
+        location.reload();
+      }
+    }
+  }, [watch("fileUpload")]);
+
   return (
-    <section className="h-full w-full bg-white pb-12">
+    <section className="h-full w-full bg-white pb-16">
       <div className="mx-auto px-4 md:w-3/4 lg:w-1/2">
         <div className="flex items-center pt-6">
           <Link to="/home">
@@ -24,7 +40,7 @@ const BahtsulMasail = () => {
           </Link>
           <h1 className="mx-auto font-roboto text-xl font-bold">Bahtsul Masail</h1>
         </div>
-        <form className="mt-12 flex flex-col gap-4 rounded-xl bg-gray px-4 pt-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
+        <form className="mt-10 flex flex-col gap-4 rounded-xl bg-gray px-4 pt-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
             <label className="mb-2">Judul *</label>
             <input {...register("title", { required: true })} className="rounded-2xl py-2 px-4 outline-none" />
@@ -44,8 +60,18 @@ const BahtsulMasail = () => {
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Unggah dokumen</label>
-            <div className="flex w-full items-center justify-start">
-              <input {...register("document")} id="fileUpload" type="file" className="flex cursor-pointer" />
+            <div className="flex min-h-[100px] w-full items-center justify-center rounded-2xl bg-white p-7">
+              <label htmlFor="fileUpload" className="flex cursor-pointer flex-col items-center gap-2 text-[#a9a9a9]">
+                <img src={imgPlaceholder} alt="placeholder" className="h-[35px] w-[44px]" />
+                {!watch("fileUpload") || watch("fileUpload").length === 0 ? (
+                  <>
+                    <p className="mt-5 font-[11px] leading-[12.89px]">Unggah dokumen (maksimum 2 MB)</p>
+                  </>
+                ) : (
+                  <p>{watch("fileUpload")[0].name}</p>
+                )}
+              </label>
+              <input {...register("fileUpload")} id="fileUpload" type="file" className="hidden" />
             </div>
           </div>
           <button

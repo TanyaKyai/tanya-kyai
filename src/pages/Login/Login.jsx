@@ -1,8 +1,7 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 
-import { logoGreen, bookGreen, logoHijau } from "../../assets";
-import { Button } from "../../components";
+import { logoHijau } from "../../assets";
 import { userLogin } from "../../services/auth";
 
 const Login = () => {
@@ -20,12 +19,12 @@ const Login = () => {
       <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-4">
         <img src={logoHijau} alt="book-logo" className=" mb-12 w-[150px]" />
 
-        <Button
-          styles={`px-8 py-1 rounded-md text-[13px]`}
+        <button
+          className="rounded-md bg-primary px-8 py-1 font-roboto text-[13px] font-bold text-white"
           onClick={() => handleLogin()}
         >
           Login dengan Google
-        </Button>
+        </button>
       </div>
     </section>
   );

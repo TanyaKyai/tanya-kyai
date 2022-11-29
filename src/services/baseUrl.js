@@ -1,3 +1,3 @@
 import axios from "axios";
 
-export default axios.create({ baseURL: "https://few-rocks-beam-182-2-39-138.loca.lt/" });
+export default axios.create({ baseURL: "https://08db-140-213-163-213.ap.ngrok.io/" });

@@ -57,6 +57,7 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
               <input
                 type="text"
                 className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
+                placeholder="Cari post di sini"
                 value={search.post}
                 onChange={(e) => setSearch((prevState) => ({ ...prevState, post: e.target.value }))}
               />
@@ -80,6 +81,7 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
               <input
                 type="text"
                 className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
+                placeholder="Cari fatwa di sini"
                 value={search.fatwa}
                 onChange={(e) => {
                   setSearch((prevState) => ({ ...prevState, fatwa: e.target.value }));

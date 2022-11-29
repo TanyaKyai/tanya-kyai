@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import { leftArrow } from "../../assets";
+import { leftArrow, imgPlaceholder } from "../../assets";
 import { createPost } from "../../services/postServices";
+import { useState } from "react";
 
 const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
   const {
@@ -10,22 +11,38 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
     handleSubmit,
     reset,
     formState: { errors },
+    watch,
   } = useForm();
   const { question } = activeQuestion || {};
 
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    createPost(data, posts, setPosts, question);
-    setActiveQuestion(null);
-    navigate("/home");
-    reset();
+    // createPost(data, posts, setPosts, question);
+    // setActiveQuestion(null);
+    // navigate("/home");
+    // if (data.gambar.length > 0) {
+    //   convert2base64(data.gambar[0]);
+    // }
+    console.log(data);
   };
+
+  // const [image, setImage] = useState("");
+
+  // const convert2base64 = (file) => {
+  //   const reader = new FileReader();
+
+  //   reader.onloadend = () => {
+  //     setImage(reader.result.toString());
+  //   };
+
+  //   reader.readAsDataURL(file);
+  // };
 
   return (
     <section className="min-h-screen w-full bg-gray">
       <div className="mx-auto px-8 md:w-3/4 lg:w-1/2">
-        <div className="flex items-center pt-12">
+        <div className="flex items-center pt-6">
           <Link to="/home">
             <img src={leftArrow} alt="left-arrow" />
           </Link>
@@ -41,17 +58,26 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
         ) : (
           ""
         )}
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-12 flex flex-col gap-4">
-          <div className="flex flex-col gap-1 bg-white p-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-10 flex flex-col gap-4">
+          <div className="flex flex-col gap-1 rounded-2xl bg-white p-4">
             <textarea
               {...register("isi", { required: true })}
-              className="h-[200px] resize-none rounded-2xl py-2 px-4 outline-none"
+              className="h-[200px] resize-none py-2 px-4 outline-none"
               placeholder="Isi post"
             />
-            {errors.body && <span className="mt-2 font-roboto text-red-500">Konten tidak bisa kosong</span>}
-            <label>Unggah gambar</label>
-            <div className="flex w-full items-center justify-start">
-              <input {...register("gambar")} id="fileUpload" type="file" className="flex cursor-pointer" />
+            {errors.isi && <span className="mt-2 p-4 font-roboto text-red-500">Konten tidak bisa kosong</span>}
+            <div className="flex w-full items-center justify-start px-4">
+              <label htmlFor="imageUpload" className="flex cursor-pointer items-center gap-2 text-[#a9a9a9]">
+                <img src={imgPlaceholder} alt="placeholder" />
+                {!watch("gambar") || watch("gambar").length === 0 ? (
+                  <>
+                    <p>Unggah gambar</p>
+                  </>
+                ) : (
+                  <p>{watch("gambar")[0].name}</p>
+                )}
+              </label>
+              <input {...register("gambar")} id="imageUpload" type="file" className="hidden" />
             </div>
           </div>
           <button
@@ -61,6 +87,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
             Post
           </button>
         </form>
+        {/* {image ? <img src={image} width="450" /> : ""} */}
       </div>
     </section>
   );
