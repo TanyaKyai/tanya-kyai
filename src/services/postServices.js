@@ -2,9 +2,13 @@ import api from "./baseUrl";
 
 export const getPosts = async (setPosts) => {
   try {
-    const response = await api.get("/posts");
+    const response = await api.get("/posts", {
+      headers: {
+        "ngrok-skip-browser-warning": "69420",
+      },
+    });
     setPosts(response.data);
-    console.log(response.data);
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
@@ -12,7 +16,7 @@ export const getPosts = async (setPosts) => {
 
 export const getFatwas = async (setFatwas) => {
   try {
-    const response = await api.get("/fatwas");
+    // const response = await api.get("/fatwas");
     // setFatwas(response.data);
   } catch (error) {
     console.log(error);
@@ -22,8 +26,11 @@ export const getFatwas = async (setFatwas) => {
 export const createPost = async (data, posts, setPosts, question) => {
   try {
     const newPost = { ...data, question };
-    const response = await api.post("/posts", newPost);
+    const response = await api.post("/posts", newPost, {
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+    });
     setPosts([...posts, response.data]);
+    console.log(response);
   } catch (error) {
     console.log(error);
   }

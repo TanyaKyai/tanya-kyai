@@ -9,7 +9,8 @@ import plus from "./home/plus.svg";
 import searchImage from "./home/search.svg";
 import send from "./home/send.svg";
 import share from "./home/share.svg";
-import tripleDots from "./home/triple-dots.svg";
+import saveBefore from "./home/save-before.svg";
+import saveAfter from "./home/save-after.svg";
 import x from "./home/x.svg";
 
 import tripleDiamonds from "./splash/triple-diamonds.svg";
@@ -32,7 +33,8 @@ export {
   searchImage,
   send,
   share,
-  tripleDots,
+  saveBefore,
+  saveAfter,
   x,
   tripleDiamonds,
   logoPutih,

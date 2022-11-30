@@ -2,7 +2,7 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 
-import { tripleDots, x, share, love, comment, avatar, leftArrow } from "../../assets";
+import { saveBefore, saveAfter, x, share, love, comment, avatar, leftArrow } from "../../assets";
 import Comment from "./Comment";
 import { deletePost } from "../../services/postServices";
 import { userRole } from "../../services/auth";
@@ -28,7 +28,7 @@ const PostDetail = ({ posts, setPosts }) => {
           </div>
           <div className="flex items-center gap-2">
             <button>
-              <img src={tripleDots} alt="triple-dots" className="h-[20px] w-[20px]" />
+              <img src={saveBefore} alt="save" className="h-[20px] w-[20px]" />
             </button>
             {userRole() === "admin" ? (
               <button onClick={() => deletePost(id, setPosts, navigate)}>
