@@ -2,7 +2,11 @@ import api from "./baseUrl";
 
 export const getComments = async (setComments) => {
   try {
-    const response = await api.get("/comments");
+    const response = await api.get("/comments", {
+      headers: {
+        "ngrok-skip-browser-warning": "69420",
+      },
+    });
     setComments(response.data);
   } catch (error) {
     console.log(error);

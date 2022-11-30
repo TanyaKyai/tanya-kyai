@@ -1,11 +1,39 @@
 {
   "posts": [
     {
-      "id": 1,
-      "isi": "Tes"
+      "isi": "Dokumen 1",
+      "gambar": {},
+      "id": 1
+    },
+    {
+      "isi": "Dokumen 2",
+      "gambar": {},
+      "id": 2
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "comment": "Tes",
+      "postId": "1",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
+      "id": 1
+    },
+    {
+      "comment": "Komen",
+      "postId": "2",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
+      "id": 2
+    },
+    {
+      "comment": "Tes",
+      "postId": "2",
+      "name": "tanya kyai",
+      "picture": "https://lh3.googleusercontent.com/a/ALm5wu0hiqvINSqKX-IAdHSS0QZdYwRHPGYF-qd4_PS9=s96-c",
+      "id": 3
+    }
+  ],
   "fatwas": [
     {
       "id": 1,
