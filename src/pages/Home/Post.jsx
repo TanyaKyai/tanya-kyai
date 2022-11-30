@@ -68,7 +68,7 @@ const Post = ({ post, setPosts }) => {
                 toast("Tautan disalin", {
                   autoClose: 750,
                   position: toast.POSITION.BOTTOM_CENTER,
-                  className: "mb-20 flex mx-auto w-1/2",
+                  className: "mb-20 flex mx-auto w-1/2 rounded-xl",
                   hideProgressBar: true,
                   pauseOnHover: false,
                 });
