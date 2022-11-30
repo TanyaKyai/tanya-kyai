@@ -18,13 +18,12 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    // createPost(data, posts, setPosts, question);
-    // setActiveQuestion(null);
-    // navigate("/home");
+    createPost(data, posts, setPosts, question);
+    setActiveQuestion(null);
+    navigate("/home");
     // if (data.gambar.length > 0) {
     //   convert2base64(data.gambar[0]);
     // }
-    console.log(data);
   };
 
   // const [image, setImage] = useState("");

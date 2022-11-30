@@ -1,5 +1,11 @@
 {
-  "posts": [{ "id": 1, "isi": "Tes" }],
+  "posts": [
+    {
+      "isi": "Tes",
+      "gambar": {},
+      "id": 1
+    }
+  ],
   "comments": [],
   "fatwas": [
     {

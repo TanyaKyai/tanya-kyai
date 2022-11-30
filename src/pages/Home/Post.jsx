@@ -9,8 +9,6 @@ import { deletePost } from "../../services/postServices";
 const Post = ({ post, setPosts }) => {
   const { id, question, isi } = post;
 
-  console.log("Post:", post);
-
   return (
     <div className="rounded-2xl bg-gray px-5 py-4">
       {/* Header */}

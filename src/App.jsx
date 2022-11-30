@@ -22,8 +22,6 @@ const App = () => {
   const [posts, setPosts] = useState([]);
   const [activeQuestion, setActiveQuestion] = useState(null);
 
-  console.log("App: ", posts);
-
   const location = useLocation();
 
   useEffect(() => {
@@ -43,13 +41,7 @@ const App = () => {
           <Route element={<Navbar />}>
             <Route
               path="/post/:id"
-              element={
-                <PostDetail
-                  posts={posts}
-                  setPosts={setPosts}
-                  activeQuestion={activeQuestion}
-                />
-              }
+              element={<PostDetail posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />}
             />
           </Route>
           <Route element={<PublicRoutes />}>
@@ -61,13 +53,7 @@ const App = () => {
               <Route
                 index
                 path="/home"
-                element={
-                  <Home
-                    posts={posts}
-                    setPosts={setPosts}
-                    activeQuestion={activeQuestion}
-                  />
-                }
+                element={<Home posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />}
               />
               <Route
                 path="/new-post"
@@ -82,10 +68,7 @@ const App = () => {
               />
               <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
               <Route path="/new-question" element={<NewQuestion />} />
-              <Route
-                path="/question-list"
-                element={<QuestionList setActiveQuestion={setActiveQuestion} />}
-              />
+              <Route path="/question-list" element={<QuestionList setActiveQuestion={setActiveQuestion} />} />
               <Route path="/notification" element={<NotificationList />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
