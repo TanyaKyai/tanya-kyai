@@ -19,7 +19,7 @@ const Post = ({ post, setPosts }) => {
         </div>
         <div className="flex items-center gap-2">
           <button>
-            <img src={saveBefore} alt="triple-dots" className="h-[20px] w-[20px]" />
+            <img src={saveBefore} alt="save" className="h-[20px] w-[20px]" />
           </button>
           {userRole() === "admin" ? (
             <button onClick={() => deletePost(id, setPosts)}>
