@@ -7,7 +7,7 @@ export const getPosts = async (setPosts) => {
         "ngrok-skip-browser-warning": "69420",
       },
     });
-    setPosts(response.data.data);
+    setPosts(response.data);
     console.log(response);
   } catch (error) {
     console.log(error);
