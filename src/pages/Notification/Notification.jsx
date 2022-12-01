@@ -6,7 +6,7 @@ const Notification = ({ NotificationItem }) => {
 
   return (
     <div>
-      <div className="flex items-center pb-4 md:justify-center">
+      <div className="flex items-center justify-center pb-4">
         <TbBook size={37} />
         <div className="flex flex-col justify-center pl-2">
           <p className="  font-roboto text-[12px] font-bold">
