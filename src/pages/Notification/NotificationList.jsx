@@ -14,15 +14,6 @@ const NotificationList = () => {
       <h1 className=" pt-6 pb-12 text-center font-roboto text-xl font-bold">
         Pemberitahuan
       </h1>
-      {notifications.length
-        ? notifications.map((notification) => (
-            <Notification
-              key={notification.id}
-              notificationItem={notification}
-            />
-          ))
-        : " "}
-      {/* sementara kosong dulu*/}
 
       <Notification />
     </section>
