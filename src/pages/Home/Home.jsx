@@ -49,7 +49,7 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
     <section className="mx-auto h-screen overflow-hidden px-4 md:w-3/4 lg:w-1/2">
       <div className="mt-6 flex flex-row items-center justify-between">
         <h1 className="font-roboto text-[18px] leading-5 text-[#535353]">
-          <span className="font-bold">hi,</span> {name}
+          <span className="font-bold">Hi,</span> {name}
         </h1>
         {active === "Beranda" ? (
           <div className="ml-4 flex flex-1 items-center gap-4 md:flex-[0.5]">
@@ -59,16 +59,29 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
                 className="w-full flex-1 rounded-2xl border-2 border-gray px-2 py-2 text-xs outline-none"
                 placeholder="Cari post di sini"
                 value={search.post}
-                onChange={(e) => setSearch((prevState) => ({ ...prevState, post: e.target.value }))}
+                onChange={(e) =>
+                  setSearch((prevState) => ({
+                    ...prevState,
+                    post: e.target.value,
+                  }))
+                }
               />
             </form>
             <div className="h-[16px] w-[16px]">
-              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
+              <img
+                src={searchImage}
+                alt="searchbar"
+                className="h-full w-full object-contain"
+              />
             </div>
             {userRole() === "admin" ? (
               <Link to="/new-post">
                 <div className="h-[16px] w-[16px]">
-                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+                  <img
+                    src={plus}
+                    alt="add-post"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
               </Link>
             ) : (
@@ -84,17 +97,28 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
                 placeholder="Cari fatwa di sini"
                 value={search.fatwa}
                 onChange={(e) => {
-                  setSearch((prevState) => ({ ...prevState, fatwa: e.target.value }));
+                  setSearch((prevState) => ({
+                    ...prevState,
+                    fatwa: e.target.value,
+                  }));
                 }}
               />
             </form>
             <div className="h-[16px] w-[16px]">
-              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
+              <img
+                src={searchImage}
+                alt="searchbar"
+                className="h-full w-full object-contain"
+              />
             </div>
             {userRole() === "admin" ? (
               <Link to="/bahtsul-masail">
                 <div className="h-[16px] w-[16px]">
-                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
+                  <img
+                    src={plus}
+                    alt="add-post"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
               </Link>
             ) : (
@@ -105,13 +129,22 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
       </div>
       <div className="mt-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
-          <Tab key={index} active={active} onClick={handleTabActive} item={item}>
+          <Tab
+            key={index}
+            active={active}
+            onClick={handleTabActive}
+            item={item}
+          >
             {item}
           </Tab>
         ))}
       </div>
       {active === "Beranda" ? (
-        <PostList posts={searchResults.post} setPosts={setPosts} activeQuestion={activeQuestion} />
+        <PostList
+          posts={searchResults.post}
+          setPosts={setPosts}
+          activeQuestion={activeQuestion}
+        />
       ) : (
         <PerpustakaanFatwa fatwas={searchResults.fatwa} />
       )}
