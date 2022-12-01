@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import api from "./baseUrl";
 
 export const getPosts = async (setPosts) => {
@@ -25,15 +26,29 @@ export const getFatwas = async (setFatwas) => {
 
 export const createPost = async (data, posts, setPosts, question) => {
   try {
-    const newPost = { ...data, tanya_id: null };
+    const newPost = { isi: data.isi, tanya_id: null };
     const response = await api.post("/posts", newPost, {
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
     });
     setPosts([...posts, response.data.data]);
-    console.log(response.data);
+    console.log("Post text: ", response);
   } catch (error) {
     console.log(error);
   }
+};
+
+export const uploadImage = async (data) => {
+  try {
+    const fd = new FormData();
+    fd.append("gambar", data.gambar[0]);
+    console.log("Gambar: ", fd.get("gambar"));
+
+    // const response = await api.post("/upload-file", fd, {
+    //   headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+    // });
+
+    // console.log(response);
+  } catch (error) {}
 };
 
 export const deletePost = async (id, setPosts, navigate) => {

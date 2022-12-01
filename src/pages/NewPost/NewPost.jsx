@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { leftArrow, imgPlaceholder } from "../../assets";
-import { createPost } from "../../services/postServices";
+import { createPost, uploadImage } from "../../services/postServices";
 import { useState } from "react";
 
 const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
@@ -19,24 +19,11 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
 
   const onSubmit = (data) => {
     createPost(data, posts, setPosts, question);
-    setActiveQuestion(null);
+    uploadImage(data);
+    // setActiveQuestion(null);
+
     navigate("/home");
-    // if (data.gambar.length > 0) {
-    //   convert2base64(data.gambar[0]);
-    // }
   };
-
-  // const [image, setImage] = useState("");
-
-  // const convert2base64 = (file) => {
-  //   const reader = new FileReader();
-
-  //   reader.onloadend = () => {
-  //     setImage(reader.result.toString());
-  //   };
-
-  //   reader.readAsDataURL(file);
-  // };
 
   return (
     <section className="min-h-screen w-full bg-gray">
@@ -65,7 +52,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
               placeholder="Isi post"
             />
             {errors.isi && <span className="mt-2 p-4 font-roboto text-red-500">Konten tidak bisa kosong</span>}
-            {/* <div className="flex w-full items-center justify-start px-4">
+            <div className="flex w-full items-center justify-start px-4">
               <label htmlFor="imageUpload" className="flex cursor-pointer items-center gap-2 text-[#a9a9a9]">
                 <img src={imgPlaceholder} alt="placeholder" />
                 {!watch("gambar") || watch("gambar").length === 0 ? (
@@ -77,7 +64,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
                 )}
               </label>
               <input {...register("gambar")} id="imageUpload" type="file" className="hidden" />
-            </div> */}
+            </div>
           </div>
           <button
             type="submit"
