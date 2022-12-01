@@ -7,7 +7,7 @@ export const getPosts = async (setPosts) => {
         "ngrok-skip-browser-warning": "69420",
       },
     });
-    setPosts(response.data);
+    setPosts(response.data.data);
     console.log(response);
   } catch (error) {
     console.log(error);
@@ -25,12 +25,12 @@ export const getFatwas = async (setFatwas) => {
 
 export const createPost = async (data, posts, setPosts, question) => {
   try {
-    const newPost = { ...data, question };
+    const newPost = { ...data, tanya_id: null };
     const response = await api.post("/posts", newPost, {
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
     });
-    setPosts([...posts, response.data]);
-    console.log(response);
+    setPosts([...posts, response.data.data]);
+    console.log(response.data);
   } catch (error) {
     console.log(error);
   }

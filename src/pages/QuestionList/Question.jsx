@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Question = ({ setActiveQuestion, questionItem }) => {
   const navigate = useNavigate();
 
-  const { question, datetime } = questionItem;
+  const { isi, datetime } = questionItem;
 
   const handleAnswer = (questionItem) => {
     setActiveQuestion(questionItem);
@@ -12,7 +12,7 @@ const Question = ({ setActiveQuestion, questionItem }) => {
 
   return (
     <div className="mb-4 flex max-h-[75vh] max-w-2xl flex-col rounded-2xl bg-gray px-5 pt-4 pb-2 last:mb-0">
-      <p>{question}</p>
+      <p>{isi}</p>
       <div className="mt-2  flex items-end justify-between">
         <span className="text-xs">{datetime}</span>
         <button

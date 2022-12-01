@@ -19,7 +19,8 @@ export const getQuestions = async (setQuestionsList) => {
         "ngrok-skip-browser-warning": "69420",
       },
     });
-    setQuestionsList(response.data);
+    setQuestionsList(response.data.data);
+    console.log(response.data);
   } catch (error) {
     console.log(error);
   }

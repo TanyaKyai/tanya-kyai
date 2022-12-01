@@ -65,7 +65,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
               placeholder="Isi post"
             />
             {errors.isi && <span className="mt-2 p-4 font-roboto text-red-500">Konten tidak bisa kosong</span>}
-            <div className="flex w-full items-center justify-start px-4">
+            {/* <div className="flex w-full items-center justify-start px-4">
               <label htmlFor="imageUpload" className="flex cursor-pointer items-center gap-2 text-[#a9a9a9]">
                 <img src={imgPlaceholder} alt="placeholder" />
                 {!watch("gambar") || watch("gambar").length === 0 ? (
@@ -77,7 +77,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
                 )}
               </label>
               <input {...register("gambar")} id="imageUpload" type="file" className="hidden" />
-            </div>
+            </div> */}
           </div>
           <button
             type="submit"
