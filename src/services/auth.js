@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export const userLogin = async (response, navigate) => {
   try {
@@ -14,14 +15,19 @@ export const userLogin = async (response, navigate) => {
     const userCredential = { ...result.data, userRole: userRole };
     navigate("/home");
 
-    localStorage.setItem("userCredential", JSON.stringify(userCredential));
+    Cookies.set("userCredential", JSON.stringify(userCredential));
   } catch (err) {
     console.log(err);
   }
 };
 
+export const userLogout = (navigate) => {
+  Cookies.remove("userCredential");
+  navigate("/login");
+};
+
 export const userRole = () => {
-  const user = JSON.parse(localStorage.getItem("userCredential"));
+  const user = JSON.parse(Cookies.get("userCredential"));
   const userRole = user?.userRole;
 
   return userRole;

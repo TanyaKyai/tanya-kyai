@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const isAuth = () => {
-  const user = localStorage.getItem("userCredential");
+  const user = Cookies.get("userCredential");
 
   if (user) {
     return true;

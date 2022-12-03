@@ -7,6 +7,7 @@ import { userRole } from "../../services/auth";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Home = ({ activeQuestion, posts, setPosts }) => {
   const [active, setActive] = useState("Beranda");
@@ -14,7 +15,7 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
   const [searchResults, setSearchResults] = useState({ post: [], fatwa: [] });
   const [search, setSearch] = useState({ post: "", fatwa: "" });
 
-  const user = JSON.parse(localStorage.getItem("userCredential"));
+  const user = JSON.parse(Cookies.get("userCredential"));
   const { name } = user;
 
   const handleTabActive = (item) => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
 
 import { getComments, createComment } from "../../services/commentServices";
 import { send, x } from "../../assets";
@@ -10,7 +11,7 @@ const Comment = () => {
   const { id } = useParams();
   const { register, handleSubmit, reset } = useForm();
 
-  const user = JSON.parse(localStorage.getItem("userCredential"));
+  const user = JSON.parse(Cookies.get("userCredential"));
   const { name, picture } = user || {};
 
   const [comments, setComments] = useState([]);
