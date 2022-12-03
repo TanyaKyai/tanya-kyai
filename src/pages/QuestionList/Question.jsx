@@ -8,6 +8,7 @@ const Question = ({ setActiveQuestion, questionItem }) => {
   const handleAnswer = (questionItem) => {
     setActiveQuestion(questionItem);
     navigate("/new-post");
+    console.log(questionItem);
   };
 
   return (

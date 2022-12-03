@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 
 import { leftArrow, imgPlaceholder } from "../../assets";
 import { createPost, uploadImage } from "../../services/postServices";
-import { useState } from "react";
 
 const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
   const {
@@ -13,14 +12,16 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
     formState: { errors },
     watch,
   } = useForm();
-  const { question } = activeQuestion || {};
+  const { isi: pertanyaan } = activeQuestion || {};
+
+  console.log("Pertanyaan: ", pertanyaan);
 
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
     createPost(data, posts, setPosts, question);
     uploadImage(data);
-    // setActiveQuestion(null);
+    setActiveQuestion(null);
 
     navigate("/home");
   };
@@ -34,11 +35,11 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
           </Link>
           <h1 className="mx-auto font-roboto text-base font-bold">Kirim Post</h1>
         </div>
-        {activeQuestion?.question?.length > 0 ? (
+        {pertanyaan?.length > 0 ? (
           <div className="mt-12">
             <h2 className="mx-auto font-roboto text-sm font-semibold">Pertanyaan</h2>
             <p className="mt-4 rounded-2xl bg-white py-4 px-4 outline-none">
-              {activeQuestion?.question?.length > 0 ? activeQuestion.question : ""}
+              {pertanyaan?.length > 0 ? pertanyaan : ""}
             </p>
           </div>
         ) : (
