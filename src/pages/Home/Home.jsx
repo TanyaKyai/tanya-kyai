@@ -68,20 +68,12 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
               />
             </form>
             <div className="h-[16px] w-[16px]">
-              <img
-                src={searchImage}
-                alt="searchbar"
-                className="h-full w-full object-contain"
-              />
+              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
             {userRole() === "admin" ? (
               <Link to="/new-post">
                 <div className="h-[16px] w-[16px]">
-                  <img
-                    src={plus}
-                    alt="add-post"
-                    className="h-full w-full object-contain"
-                  />
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
                 </div>
               </Link>
             ) : (
@@ -105,20 +97,12 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
               />
             </form>
             <div className="h-[16px] w-[16px]">
-              <img
-                src={searchImage}
-                alt="searchbar"
-                className="h-full w-full object-contain"
-              />
+              <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
             {userRole() === "admin" ? (
               <Link to="/bahtsul-masail">
                 <div className="h-[16px] w-[16px]">
-                  <img
-                    src={plus}
-                    alt="add-post"
-                    className="h-full w-full object-contain"
-                  />
+                  <img src={plus} alt="add-post" className="h-full w-full object-contain" />
                 </div>
               </Link>
             ) : (
@@ -129,22 +113,13 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
       </div>
       <div className="mt-4 flex w-full rounded-2xl bg-gray">
         {["Beranda", "Perpustakaan Fatwa"].map((item, index) => (
-          <Tab
-            key={index}
-            active={active}
-            onClick={handleTabActive}
-            item={item}
-          >
+          <Tab key={index} active={active} onClick={handleTabActive} item={item}>
             {item}
           </Tab>
         ))}
       </div>
       {active === "Beranda" ? (
-        <PostList
-          posts={searchResults.post}
-          setPosts={setPosts}
-          activeQuestion={activeQuestion}
-        />
+        <PostList posts={searchResults.post} setPosts={setPosts} activeQuestion={activeQuestion} />
       ) : (
         <PerpustakaanFatwa fatwas={searchResults.fatwa} />
       )}

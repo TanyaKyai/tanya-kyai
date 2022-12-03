@@ -12,6 +12,7 @@ const NewQuestion = () => {
   const onSubmit = (data) => {
     createQuestion(data);
     setIsToggled(true);
+    console.log(data);
   };
   const [isToggled, setIsToggled] = useState(false);
 

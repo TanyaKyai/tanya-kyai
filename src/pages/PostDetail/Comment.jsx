@@ -28,7 +28,7 @@ const Comment = () => {
   const commentChildren = commentContainer?.childNodes?.length - 1;
 
   return (
-    <div className="mt-4 rounded-2xl bg-gray px-5 pt-4 pb-0" id="commentContainer">
+    <div className="mt-4 rounded-2xl bg-gray px-4 pt-4 pb-0" id="commentContainer">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={`mb-3 flex items-center gap-2 ${commentChildren > 0 ? "pb-0" : "pb-4"}`}

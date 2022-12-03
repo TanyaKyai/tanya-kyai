@@ -15,10 +15,15 @@ const PostDetail = ({ posts, setPosts }) => {
   const { question, isi } = post || {};
 
   return (
-    <section className="mx-auto px-8 pb-12 pt-6 md:w-3/4 lg:w-1/2">
-      <Link to="/home" className="inline-block">
-        <img src={leftArrow} alt="left-arrow" />
-      </Link>
+    <section className="mx-auto px-4 pb-12 pt-6 md:w-3/4 lg:w-1/2">
+      <div className="relative flex items-center">
+        <Link to="/home" className="inline-block">
+          <img src={leftArrow} alt="left-arrow" />
+          <h2 className="absolute left-[50%] top-[50%] mx-auto -translate-x-1/2 -translate-y-1/2 text-center font-roboto text-xl font-bold">
+            Beranda
+          </h2>
+        </Link>
+      </div>
       <div className="mt-12 rounded-2xl bg-gray px-5 py-4">
         {/* Header */}
         <div className="flex items-center justify-between">
