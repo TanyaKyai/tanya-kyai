@@ -17,7 +17,6 @@ const BahtsulMasail = () => {
 
   const onSubmit = (data) => {
     navigate("/home");
-    console.log(data);
   };
 
   useEffect(() => {

@@ -7,7 +7,7 @@ import { userRole } from "../../services/auth";
 import { deletePost } from "../../services/postServices";
 
 const Post = ({ post, setPosts }) => {
-  const { id, question, isi } = post;
+  const { id, tanya, isi } = post;
 
   return (
     <div className="rounded-2xl bg-gray px-5 py-4">
@@ -33,15 +33,15 @@ const Post = ({ post, setPosts }) => {
       {/* Content */}
       <Link to={`/post/${id}`} id="Tes" className="cursor-pointer">
         <div className="my-5">
-          {question?.length > 0 ? (
+          {tanya?.length > 0 ? (
             <div className="mt-4">
-              <p className="mt-4">{question?.length > 0 ? question : ""}</p>
+              <p className="mt-4">{tanya?.length > 0 ? tanya : ""}</p>
               <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
             </div>
           ) : (
             ""
           )}
-          <p className={`${question?.length > 0 ? "mt-1" : "mt-4"} whitespace-pre-line font-roboto text-sm`}>
+          <p className={`${tanya?.length > 0 ? "mt-1" : "mt-4"} whitespace-pre-line font-roboto text-sm`}>
             {isi.length <= 500 ? isi : `${isi.slice(0, 500)}... `}
             <span className="font-bold">{isi.length <= 500 ? "" : "See more"}</span>
           </p>

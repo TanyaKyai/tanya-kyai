@@ -14,8 +14,6 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
   } = useForm();
   const { isi: pertanyaan } = activeQuestion || {};
 
-  console.log("Pertanyaan: ", pertanyaan);
-
   const navigate = useNavigate();
 
   const onSubmit = (data) => {

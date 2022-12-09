@@ -9,7 +9,6 @@ export const getPosts = async (setPosts) => {
       },
     });
     setPosts(response.data.data);
-    console.log(response);
   } catch (error) {
     console.log(error);
   }
@@ -26,12 +25,12 @@ export const getFatwas = async (setFatwas) => {
 
 export const createPost = async (data, posts, setPosts, question) => {
   try {
-    const newPost = { isi: data.isi, tanya : question };
+    const newPost = { isi: data.isi, tanya: question ? question : null };
     const response = await api.post("/posts", newPost, {
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
     });
     setPosts([...posts, response.data.data]);
-    console.log("Post text: ", response);
+    getPosts(setPosts);
   } catch (error) {
     console.log(error);
   }
