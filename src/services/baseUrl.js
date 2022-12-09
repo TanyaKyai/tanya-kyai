@@ -1,3 +1,3 @@
 import axios from "axios";
 
-export default axios.create({ baseURL: "http://192.168.109.176:5000" });
+export default axios.create({ baseURL: "https://kyai-backend.tanyakyai-dev.194.233.73.19.sslip.io/" });
