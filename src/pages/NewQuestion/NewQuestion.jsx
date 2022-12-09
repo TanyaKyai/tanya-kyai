@@ -10,9 +10,9 @@ const NewQuestion = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    console.log(data);
     createQuestion(data);
     setIsToggled(true);
-    console.log(data);
   };
   const [isToggled, setIsToggled] = useState(false);
 
@@ -20,8 +20,13 @@ const NewQuestion = () => {
     <section>
       {!isToggled ? (
         <div className="mx-auto px-4 md:w-3/4 lg:w-1/2">
-          <div className="pt-6 text-center font-roboto text-xl font-bold">Tanya Kyai</div>
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-12 flex flex-col gap-4">
+          <div className="pt-6 text-center font-roboto text-xl font-bold">
+            Tanya Kyai
+          </div>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-12 flex flex-col gap-4"
+          >
             <div className="flex flex-col">
               <textarea
                 className="h-[200px] rounded-2xl bg-gray py-2 px-4 outline-none"
@@ -29,7 +34,11 @@ const NewQuestion = () => {
                 placeholder="Isi pertanyaan"
                 {...register("isi", { required: true })}
               />
-              {errors.isi && <span className="mt-2 font-roboto text-red-500">Pertanyaan tidak bisa kosong</span>}
+              {errors.isi && (
+                <span className="mt-2 font-roboto text-red-500">
+                  Pertanyaan tidak bisa kosong
+                </span>
+              )}
             </div>
             <button
               className="mx-auto mt-2 rounded-md bg-primary px-8 py-1 font-roboto text-base font-bold text-white"

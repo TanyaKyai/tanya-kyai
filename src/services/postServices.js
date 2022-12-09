@@ -26,7 +26,7 @@ export const getFatwas = async (setFatwas) => {
 
 export const createPost = async (data, posts, setPosts, question) => {
   try {
-    const newPost = { isi: data.isi, tanya_id: null };
+    const newPost = { isi: data.isi, tanya : question };
     const response = await api.post("/posts", newPost, {
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
     });

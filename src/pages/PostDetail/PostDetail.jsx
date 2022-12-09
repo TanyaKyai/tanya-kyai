@@ -12,7 +12,7 @@ const PostDetail = ({ posts, setPosts }) => {
   const navigate = useNavigate();
 
   const post = posts.find((post) => post.id.toString() === id);
-  const { question, isi } = post || {};
+  const { tanya, isi } = post || {};
 
   return (
     <section className="mx-auto px-4 pb-12 pt-6 md:w-3/4 lg:w-1/2">
@@ -46,8 +46,8 @@ const PostDetail = ({ posts, setPosts }) => {
         </div>
         {/* Content */}
         <div className="my-5 flex flex-col">
-          <p className="whitespace-pre-line font-roboto text-sm">{question}</p>
-          {question ? <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2> : ""}
+          <p className="whitespace-pre-line font-roboto text-sm">{tanya}</p>
+          {tanya ? <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2> : ""}
           <p className="mt-1 whitespace-pre-line font-roboto text-sm">{isi}</p>
         </div>
         {/* Footer */}

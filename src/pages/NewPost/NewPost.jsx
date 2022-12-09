@@ -19,7 +19,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    createPost(data, posts, setPosts, question);
+    createPost(data, posts, setPosts, pertanyaan);
     uploadImage(data);
     setActiveQuestion(null);
 
