@@ -13,7 +13,7 @@ export const userLogin = async (response, navigate) => {
     const userCredential = { ...result.data, userRole: userRole };
     navigate("/home");
 
-    Cookies.set("userCredential", JSON.stringify(userCredential));
+    Cookies.set("userCredential", JSON.stringify(userCredential), { expires: 7 });
   } catch (err) {
     console.log(err);
   }
