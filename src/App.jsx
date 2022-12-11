@@ -41,12 +41,12 @@ const App = () => {
     <div className="h-full">
       <GoogleOAuthProvider clientId="262788619795-odstb3g9l2l5i265rkrisqf2m6kd4dl3.apps.googleusercontent.com">
         <Routes>
-          <Route element={<Navbar />}>
+          {/* <Route element={<Navbar />}>
             <Route
               path="/post/:id"
               element={<PostDetail posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />}
             />
-          </Route>
+          </Route> */}
           <Route element={<PublicRoutes />}>
             <Route index path="/" element={<Splash />} />
             <Route index path="/login" element={<Login />} />
