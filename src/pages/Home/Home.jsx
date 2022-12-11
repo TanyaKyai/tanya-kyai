@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Home = ({ activeQuestion, posts, setPosts, fatwas }) => {
+const Home = ({ activeQuestion, posts, setPosts, fatwas, setFatwas }) => {
   const [active, setActive] = useState("Beranda");
   const [searchResults, setSearchResults] = useState({ post: [], fatwa: [] });
   const [search, setSearch] = useState({ post: "", fatwa: "" });
@@ -34,8 +34,8 @@ const Home = ({ activeQuestion, posts, setPosts, fatwas }) => {
   useEffect(() => {
     const filteredResults = fatwas.filter((fatwa) => {
       return (
-        fatwa.title?.toLowerCase().includes(search.fatwa.toLowerCase()) ||
-        fatwa.topic?.toLowerCase().includes(search.fatwa.toLowerCase())
+        fatwa.judul?.toLowerCase().includes(search.fatwa.toLowerCase()) ||
+        fatwa.tema?.toLowerCase().includes(search.fatwa.toLowerCase())
       );
     });
 
@@ -118,7 +118,7 @@ const Home = ({ activeQuestion, posts, setPosts, fatwas }) => {
       {active === "Beranda" ? (
         <PostList posts={searchResults.post} setPosts={setPosts} activeQuestion={activeQuestion} />
       ) : (
-        <PerpustakaanFatwa fatwas={searchResults.fatwa} />
+        <PerpustakaanFatwa fatwas={searchResults.fatwa} setFatwas={setFatwas} />
       )}
     </section>
   );
