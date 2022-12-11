@@ -12,6 +12,7 @@ import share from "./home/share.svg";
 import saveBefore from "./home/save-before.svg";
 import saveAfter from "./home/save-after.svg";
 import x from "./home/x.svg";
+import xWhite from "./home/x-white.svg";
 
 import tripleDiamonds from "./splash/triple-diamonds.svg";
 import logoPutih from "./splash/logo-putih.svg";
@@ -36,6 +37,7 @@ export {
   saveBefore,
   saveAfter,
   x,
+  xWhite,
   tripleDiamonds,
   logoPutih,
   logoHijau,
