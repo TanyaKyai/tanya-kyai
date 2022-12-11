@@ -17,19 +17,19 @@ const BahtsulMasail = ({ setFatwas }) => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    createFatwa(setFatwas);
+    createFatwa(setFatwas, data, navigate);
   };
 
   // useEffect(() => {
-  //   const fileSize = watch(["fileUpload"]);
-  //   if (!watch("fileUpload") || watch("fileUpload").length !== 0) {
+  //   const fileSize = watch(["file"]);
+  //   if (!watch("file") || watch("file").length !== 0) {
   //     if (fileSize[0][0].size > 2048000) {
   //       alert("File terlalu besar");
-  //       resetField("fileUpload");
+  //       resetField("file");
   //       location.reload();
   //     }
   //   }
-  // }, [watch("fileUpload")]);
+  // }, [watch("file")]);
 
   return (
     <section className="h-full w-full bg-white pb-16">
@@ -43,32 +43,32 @@ const BahtsulMasail = ({ setFatwas }) => {
         <form className="mt-10 flex flex-col gap-4 rounded-xl bg-gray px-4 pt-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
             <label className="mb-2">Judul *</label>
-            <input {...register("title", { required: true })} className="rounded-2xl py-2 px-4 outline-none" />
-            {errors.title && <span className="mt-2 font-roboto text-red-500">Judul tidak bisa kosong</span>}
+            <input {...register("judul", { required: true })} className="rounded-2xl py-2 px-4 outline-none" />
+            {errors.judul && <span className="mt-2 font-roboto text-red-500">Judul tidak bisa kosong</span>}
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Tema *</label>
-            <input {...register("topic", { required: true })} className="rounded-2xl py-2 px-4 outline-none" />
-            {errors.topic && <span className="mt-2 font-roboto text-red-500">Tema tidak bisa kosong</span>}
+            <input {...register("tema", { required: true })} className="rounded-2xl py-2 px-4 outline-none" />
+            {errors.tema && <span className="mt-2 font-roboto text-red-500">Tema tidak bisa kosong</span>}
           </div>
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <label className="mb-2">Keterangan (opsional)</label>
             <textarea {...register("description")} className="h-[100px] rounded-2xl py-2 px-4 outline-none" />
-          </div>
+          </div> */}
           <div className="flex flex-col">
             <label className="mb-2">Unggah dokumen</label>
             <div className="flex min-h-[100px] w-full items-center justify-center rounded-2xl bg-white p-7">
-              <label htmlFor="fileUpload" className="flex cursor-pointer flex-col items-center gap-2 text-[#a9a9a9]">
+              <label htmlFor="file" className="flex cursor-pointer flex-col items-center gap-2 text-[#a9a9a9]">
                 <img src={imgPlaceholder} alt="placeholder" className="h-[35px] w-[44px]" />
-                {!watch("fileUpload") || watch("fileUpload").length === 0 ? (
+                {!watch("file") || watch("file").length === 0 ? (
                   <>
                     <p className="mt-5 font-[11px] leading-[12.89px]">Unggah dokumen (maksimum 2 MB)</p>
                   </>
                 ) : (
-                  <p>{watch("fileUpload")[0].name}</p>
+                  <p>{watch("file")[0].name}</p>
                 )}
               </label>
-              <input {...register("fileUpload")} id="fileUpload" type="file" className="hidden" />
+              <input {...register("file")} id="file" type="file" className="hidden" />
             </div>
           </div>
           <button
