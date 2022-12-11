@@ -22,7 +22,11 @@ export const createFatwa = async (setFatwas) => {
       }
     }
 
-    const response = await api.post("/file-upload", fd);
+    const response = await api.post("/file-upload", fd, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
     console.log(response);
     getFatwas(setFatwas);
   } catch (error) {
