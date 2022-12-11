@@ -67,6 +67,10 @@ const App = () => {
                 }
               />
               <Route
+                path="/post/:id"
+                element={<PostDetail posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />}
+              />
+              <Route
                 path="/new-post"
                 element={
                   <NewPost
