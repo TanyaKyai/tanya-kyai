@@ -17,15 +17,18 @@ import {
 } from "./pages";
 import { ProtectedRoutes, PublicRoutes } from "./routes";
 import { getPosts } from "./services/postServices";
+import { getFatwas } from "./services/fatwaServices";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [fatwas, setFatwas] = useState([]);
   const [activeQuestion, setActiveQuestion] = useState(null);
 
   const location = useLocation();
 
   useEffect(() => {
     getPosts(setPosts);
+    getFatwas(setFatwas);
   }, []);
 
   useEffect(() => {
@@ -53,7 +56,7 @@ const App = () => {
               <Route
                 index
                 path="/home"
-                element={<Home posts={posts} setPosts={setPosts} activeQuestion={activeQuestion} />}
+                element={<Home posts={posts} setPosts={setPosts} fatwas={fatwas} activeQuestion={activeQuestion} />}
               />
               <Route
                 path="/new-post"
@@ -66,7 +69,7 @@ const App = () => {
                   />
                 }
               />
-              <Route path="/bahtsul-masail" element={<BahtsulMasail />} />
+              <Route path="/bahtsul-masail" element={<BahtsulMasail setFatwas={setFatwas} />} />
               <Route path="/new-question" element={<NewQuestion />} />
               <Route path="/question-list" element={<QuestionList setActiveQuestion={setActiveQuestion} />} />
               <Route path="/notification" element={<NotificationList />} />
