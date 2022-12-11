@@ -2,14 +2,14 @@ import api from "./baseUrl";
 
 export const getFatwas = async (setFatwas) => {
   try {
-    const response = await api.get("/fatwas");
+    const response = await api.get("/file-upload");
     setFatwas(response.data.data);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const createFatwa = async (setFatwas) => {
+export const createFatwa = async (setFatwas, data, navigate) => {
   try {
     const fd = new FormData();
 
@@ -24,11 +24,22 @@ export const createFatwa = async (setFatwas) => {
 
     const response = await api.post("/file-upload", fd, {
       headers: {
-        "content-type": "multipart/form-data",
+        "Content-Type": "multipart/form-data",
       },
     });
-    console.log(response);
     getFatwas(setFatwas);
+    navigate("/home");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteFatwa = async (id, setFatwas) => {
+  try {
+    const response = api.delete(`file-upload/${id}`);
+    response.then(function () {
+      getFatwas(setFatwas);
+    });
   } catch (error) {
     console.log(error);
   }
