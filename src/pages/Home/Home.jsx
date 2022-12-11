@@ -2,16 +2,14 @@ import { searchImage, plus } from "../../assets";
 import Tab from "./Tab";
 import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
-import { getFatwas } from "../../services/fatwaServices";
 import { userRole } from "../../services/auth";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Home = ({ activeQuestion, posts, setPosts }) => {
+const Home = ({ activeQuestion, posts, setPosts, fatwas }) => {
   const [active, setActive] = useState("Beranda");
-  const [fatwas, setFatwas] = useState([]);
   const [searchResults, setSearchResults] = useState({ post: [], fatwa: [] });
   const [search, setSearch] = useState({ post: "", fatwa: "" });
 
@@ -21,10 +19,6 @@ const Home = ({ activeQuestion, posts, setPosts }) => {
   const handleTabActive = (item) => {
     setActive(item);
   };
-
-  useEffect(() => {
-    getFatwas(setFatwas);
-  }, []);
 
   useEffect(() => {
     const filteredResults = posts.filter((post) => {
