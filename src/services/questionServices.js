@@ -14,11 +14,7 @@ export const createQuestion = async (data) => {
 
 export const getQuestions = async (setQuestionsList) => {
   try {
-    const response = await api.get("/questions", {
-      headers: {
-        "ngrok-skip-browser-warning": "69420",
-      },
-    });
+    const response = await api.get("/questions");
     setQuestionsList(response.data.data);
   } catch (error) {
     console.log(error);
