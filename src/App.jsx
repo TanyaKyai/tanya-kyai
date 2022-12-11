@@ -56,7 +56,15 @@ const App = () => {
               <Route
                 index
                 path="/home"
-                element={<Home posts={posts} setPosts={setPosts} fatwas={fatwas} activeQuestion={activeQuestion} />}
+                element={
+                  <Home
+                    posts={posts}
+                    setPosts={setPosts}
+                    fatwas={fatwas}
+                    setFatwas={setFatwas}
+                    activeQuestion={activeQuestion}
+                  />
+                }
               />
               <Route
                 path="/new-post"
