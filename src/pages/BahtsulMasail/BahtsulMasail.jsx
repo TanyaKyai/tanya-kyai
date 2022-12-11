@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
 import { imgPlaceholder, leftArrow } from "../../assets";
+import { createFatwa } from "../../services/fatwaServices";
 
-const BahtsulMasail = () => {
+const BahtsulMasail = ({ setFatwas }) => {
   const {
     register,
     handleSubmit,
@@ -16,19 +17,19 @@ const BahtsulMasail = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    navigate("/home");
+    createFatwa(setFatwas);
   };
 
-  useEffect(() => {
-    const fileSize = watch(["fileUpload"]);
-    if (!watch("fileUpload") || watch("fileUpload").length !== 0) {
-      if (fileSize[0][0].size > 2048000) {
-        alert("File terlalu besar");
-        resetField("fileUpload");
-        location.reload();
-      }
-    }
-  }, [watch("fileUpload")]);
+  // useEffect(() => {
+  //   const fileSize = watch(["fileUpload"]);
+  //   if (!watch("fileUpload") || watch("fileUpload").length !== 0) {
+  //     if (fileSize[0][0].size > 2048000) {
+  //       alert("File terlalu besar");
+  //       resetField("fileUpload");
+  //       location.reload();
+  //     }
+  //   }
+  // }, [watch("fileUpload")]);
 
   return (
     <section className="h-full w-full bg-white pb-16">
@@ -52,10 +53,7 @@ const BahtsulMasail = () => {
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Keterangan (opsional)</label>
-            <textarea
-              {...register("description", { required: true })}
-              className="h-[100px] rounded-2xl py-2 px-4 outline-none"
-            />
+            <textarea {...register("description")} className="h-[100px] rounded-2xl py-2 px-4 outline-none" />
           </div>
           <div className="flex flex-col">
             <label className="mb-2">Unggah dokumen</label>
