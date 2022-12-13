@@ -7,7 +7,10 @@ const Splash = () => {
   return (
     <section className="flex h-screen flex-col items-center justify-center gap-y-4 bg-primary">
       <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: 6 }}>
-        <Link to="/login" className="absolute top-4 right-4 font-inter text-xs text-white">
+        <Link
+          to="/login"
+          className="absolute top-4 right-4 font-inter text-xs text-white"
+        >
           Lewati
         </Link>
       </motion.div>
@@ -17,7 +20,9 @@ const Splash = () => {
         transition={{ duration: 3 }}
       >
         <img src={logoPutih} alt="logo" className="w-[180px]" />
-        <p className="pt-2 font-roboto text-[23px] font-bold text-white">Tanya Kyai</p>
+        <p className="pt-2 font-roboto text-[23px] font-bold text-white">
+          Tanya Kyai
+        </p>
       </motion.div>
       <motion.div
         className="absolute bottom-24 flex flex-col items-center justify-center gap-y-3"
@@ -26,9 +31,11 @@ const Splash = () => {
       >
         <img src={tripleDiamonds} alt="kutip" className="w-[15px]" />
         <p className="flex px-8 text-center font-inter text-[11px] text-white md:w-3/4 md:text-sm lg:w-1/2">
-          Aplikasi (Al-Bahtsu) merupakan aplikasi yang bertujuan untuk membangun komunikasi yang intens dan
-          berkelanjutan atas permasalahan keagamaan, muamalat, dan keluarga yang terjadi di lingkup masyarakat secara
-          luas dan nahdiyyin pada khususnya.
+          Aplikasi Tanya Kyai ini merupakan aplikasi yang dikembangkan untuk
+          membangun komunikasi yang intens dan berkelanjutan, serta menjawab
+          berbagai persoalan keagamaan yang terjadi di masyarakat. Seluruh
+          pertanyaan yang diajukan melalui aplikasi ini dijawab oleh para ahli
+          di bidang keagamaan.
         </p>
       </motion.div>
       <motion.footer
