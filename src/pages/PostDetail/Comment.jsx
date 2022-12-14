@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Cookies from "js-cookie";
 
 import { getComments, createComment, deleteComment } from "../../services/commentServices";
 import { send, x } from "../../assets";
-import { userRole } from "../../services/auth";
+import { UserContext } from "../../context/UserContext";
 
 const Comment = () => {
+  const { name, picture, userRole } = useContext(UserContext);
   const { id } = useParams();
   const { register, handleSubmit, reset } = useForm();
-
-  const user = JSON.parse(Cookies.get("userCredential"));
-  const { name, picture } = user || {};
 
   const [comments, setComments] = useState([]);
   const [commentChildren, setCommentChildren] = useState(null);
@@ -59,7 +56,7 @@ const Comment = () => {
                     <p className="font-roboto text-sm font-light">{isi}</p>
                   </div>
                 </div>
-                {userRole() === "admin" ? (
+                {userRole === "admin" ? (
                   <button onClick={() => deleteComment(id, comment_id, setComments)}>
                     <img src={x} alt="close" className="h-[16px] w-[16px]" />
                   </button>

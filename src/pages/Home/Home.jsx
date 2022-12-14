@@ -2,19 +2,18 @@ import { searchImage, plus } from "../../assets";
 import Tab from "./Tab";
 import PerpustakaanFatwa from "./PerpustakaanFatwa";
 import PostList from "./PostList";
-import { userRole } from "../../services/auth";
+import { UserContext } from "../../context/UserContext";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+import { useContext } from "react";
 
 const Home = ({ activeQuestion, posts, setPosts, fatwas, setFatwas }) => {
   const [active, setActive] = useState("Beranda");
   const [searchResults, setSearchResults] = useState({ post: [], fatwa: [] });
   const [search, setSearch] = useState({ post: "", fatwa: "" });
 
-  const user = JSON.parse(Cookies.get("userCredential"));
-  const { name } = user;
+  const { name, userRole } = useContext(UserContext);
 
   const handleTabActive = (item) => {
     setActive(item);
@@ -67,7 +66,7 @@ const Home = ({ activeQuestion, posts, setPosts, fatwas, setFatwas }) => {
             <div className="h-[16px] w-[16px]">
               <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
-            {userRole() === "admin" ? (
+            {userRole === "admin" ? (
               <Link to="/new-post">
                 <div className="h-[16px] w-[16px]">
                   <img src={plus} alt="add-post" className="h-full w-full object-contain" />
@@ -96,7 +95,7 @@ const Home = ({ activeQuestion, posts, setPosts, fatwas, setFatwas }) => {
             <div className="h-[16px] w-[16px]">
               <img src={searchImage} alt="searchbar" className="h-full w-full object-contain" />
             </div>
-            {userRole() === "admin" ? (
+            {userRole === "admin" ? (
               <Link to="/bahtsul-masail">
                 <div className="h-[16px] w-[16px]">
                   <img src={plus} alt="add-post" className="h-full w-full object-contain" />

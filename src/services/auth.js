@@ -27,6 +27,4 @@ export const userLogout = (navigate) => {
 export const userRole = () => {
   const user = JSON.parse(Cookies.get("userCredential"));
   const userRole = user?.userRole;
-
-  return userRole;
 };

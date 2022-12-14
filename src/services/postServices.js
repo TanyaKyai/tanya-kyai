@@ -41,5 +41,16 @@ export const deletePost = async (id, setPosts, navigate) => {
     await api.delete(`/posts/${id}`);
     getPosts(setPosts);
     navigate("/home");
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editPost = async (id, setPosts) => {
+  try {
+    await api.put(`/edit/${id}`);
+    getPosts(setPosts);
+  } catch (error) {
+    console.log(error);
+  }
 };

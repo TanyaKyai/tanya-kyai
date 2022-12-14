@@ -47,7 +47,7 @@ const NewPost = ({ activeQuestion, setActiveQuestion, posts, setPosts }) => {
           <div className="flex flex-col gap-1 rounded-2xl bg-white p-4">
             <textarea
               {...register("isi", { required: true })}
-              className="h-[200px] resize-none py-2 px-4 outline-none"
+              className="h-[200px] resize-none outline-none"
               placeholder="Isi post"
             />
             {errors.isi && <span className="mt-2 p-4 font-roboto text-red-500">Konten tidak bisa kosong</span>}

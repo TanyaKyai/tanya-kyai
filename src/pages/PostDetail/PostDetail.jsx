@@ -1,15 +1,17 @@
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer, Zoom } from "react-toastify";
+import { useContext } from "react";
 
 import { saveBefore, saveAfter, x, share, love, comment, avatar, leftArrow } from "../../assets";
 import Comment from "./Comment";
 import { deletePost } from "../../services/postServices";
-import { userRole } from "../../services/auth";
+import { UserContext } from "../../context/UserContext";
 
 const PostDetail = ({ posts, setPosts }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { userRole } = useContext(UserContext);
 
   const post = posts.find((post) => post.id.toString() === id);
   const { tanya, isi } = post || {};
@@ -35,7 +37,7 @@ const PostDetail = ({ posts, setPosts }) => {
             <button>
               <img src={saveBefore} alt="save" className="h-[20px] w-[20px]" />
             </button>
-            {userRole() === "admin" ? (
+            {userRole === "admin" ? (
               <button onClick={() => deletePost(id, setPosts, navigate)}>
                 <img src={x} alt="close" className="h-[16px] w-[16px]" />
               </button>

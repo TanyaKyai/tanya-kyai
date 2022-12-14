@@ -1,21 +1,20 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import {
-  saveBefore,
-  saveAfter,
-  x,
-  share,
-  love,
-  comment,
-  avatar,
-} from "../../assets";
-import { userRole } from "../../services/auth";
+import { saveBefore, saveAfter, x, share, love, comment, avatar } from "../../assets";
+import { UserContext } from "../../context/UserContext";
 import { deletePost } from "../../services/postServices";
 
 const Post = ({ post, setPosts }) => {
+  const [isReadMore, setIsReadMore] = useState(true);
   const { id, tanya, isi } = post;
+  const { userRole } = useContext(UserContext);
+
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
 
   return (
     <div className="rounded-2xl bg-gray px-5 py-4">
@@ -23,15 +22,13 @@ const Post = ({ post, setPosts }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <img src={avatar} alt="avatar" />
-          <h2 className="font-roboto text-xs font-bold text-primary">
-            LBM PWNU DIY
-          </h2>
+          <h2 className="font-roboto text-xs font-bold text-primary">LBM PWNU DIY</h2>
         </div>
         <div className="flex items-center gap-2">
           <button>
             <img src={saveBefore} alt="save" className="h-[20px] w-[20px]" />
           </button>
-          {userRole() === "admin" ? (
+          {userRole === "admin" ? (
             <button onClick={() => deletePost(id, setPosts)}>
               <img src={x} alt="close" className="h-[16px] w-[16px]" />
             </button>
@@ -41,37 +38,31 @@ const Post = ({ post, setPosts }) => {
         </div>
       </div>
       {/* Content */}
-      <Link to={`/post/${id}`} id="Tes" className="cursor-pointer">
+      <div>
         <div className="my-5">
           {tanya?.length > 0 ? (
             <div className="mt-4">
               <p className="mt-4">{tanya?.length > 0 ? tanya : ""}</p>
-              <h2 className="mt-4 font-roboto text-sm font-semibold">
-                Jawaban
-              </h2>
+              <h2 className="mt-4 font-roboto text-sm font-semibold">Jawaban</h2>
             </div>
           ) : (
             ""
           )}
-          <p
-            className={`${
-              tanya?.length > 0 ? "mt-1" : "mt-4"
-            } whitespace-pre-line font-roboto text-sm`}
-          >
-            {isi.length <= 500 ? isi : `${isi.slice(0, 500)}... `}
-            <span className="font-bold">
-              {isi.length <= 500 ? "" : "See more"}
+          <p className={`${tanya?.length > 0 ? "mt-1" : "mt-4"} whitespace-pre-line font-roboto text-sm`}>
+            {isReadMore ? (isi.length > 500 ? `${isi.slice(0, 500)}... ` : isi) : isi}
+            <span className="cursor-pointer font-bold" onClick={() => toggleReadMore()}>
+              {isi.length > 500 ? (isReadMore ? "Read more" : " Show less") : ""}
             </span>
           </p>
         </div>
-      </Link>
+      </div>
       {/* Footer */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button>
             <img src={love} alt="like" className="h-[20px] w-[20px]" />
           </button>
-          <Link to={`/post/${id}`} id="Tes" className="cursor-pointer">
+          <Link to={`/post/${id}`} className="cursor-pointer">
             <img src={comment} alt="comment" className="h-[16px] w-[16px]" />
           </Link>
         </div>
@@ -82,9 +73,7 @@ const Post = ({ post, setPosts }) => {
               alt="share"
               className="h-[16px] w-[16px]"
               onClick={() => {
-                navigator.clipboard.writeText(
-                  window.location.origin + `/post/${id}`
-                );
+                navigator.clipboard.writeText(window.location.origin + `/post/${id}`);
                 toast("Tautan disalin", {
                   autoClose: 750,
                   position: toast.POSITION.BOTTOM_CENTER,

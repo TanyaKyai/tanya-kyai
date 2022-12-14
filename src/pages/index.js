@@ -1,4 +1,5 @@
 import BahtsulMasail from "./BahtsulMasail/BahtsulMasail";
+import EditPost from "./EditPost/EditPost";
 import { Home } from "./Home";
 import Login from "./Login/Login";
 import NewPost from "./NewPost/NewPost";
@@ -11,6 +12,7 @@ import Splash from "./Splash/Splash";
 
 export {
   BahtsulMasail,
+  EditPost,
   Home,
   Login,
   NewPost,
